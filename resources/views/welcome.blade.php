@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    GestFit
+                    GestFit test update
                 </div>
 
                 <div class="links">
