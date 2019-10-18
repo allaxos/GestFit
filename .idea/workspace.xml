@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1989f100-9348-4922-bdad-4fb166e126e9" name="Default Changelist" comment="ajout des login -&gt; on peux s'inscrire et se connecter &#10;-&gt; lors de l'inscription il envoie un mail de verif&#10;-&gt; on peux faire un reset du login">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
+    <list default="true" id="1989f100-9348-4922-bdad-4fb166e126e9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Admin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/reservation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_10_18_164923_reservation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +14,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -41,7 +35,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Auth" />
+        <entry key="$PROJECT_DIR$" value="adminLogin" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -142,7 +136,11 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1SCxLAoDUMhB0hieYLvnC9ho1E6" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -186,7 +184,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571081320077</updated>
-      <workItem from="1571081321817" duration="10086000" />
+      <workItem from="1571081321817" duration="14556000" />
+      <workItem from="1571415693207" duration="4677000" />
     </task>
     <task id="LOCAL-00001" summary="ajout des login -&gt; on peux s'inscrire et se connecter &#10;-&gt; lors de l'inscription il envoie un mail de verif&#10;-&gt; on peux faire un reset du login">
       <created>1571081769101</created>
@@ -216,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571084063772</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Ajout du login en étant admin ou normal user">
+      <created>1571158986199</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1571158986199</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,6 +270,7 @@
                   </entry>
                 </map>
               </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -291,10 +298,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="ajout des login -&gt; on peux s'inscrire et se connecter &#10;-&gt; lors de l'inscription il envoie un mail de verif&#10;-&gt; on peux faire un reset du login" />
     <MESSAGE value="Revert &quot;ajout des login -&gt; on peux s'inscrire et se connecter -&gt; lors de l'inscription il envoie un mail de verif -&gt; on peux faire un reset du login&quot;&#10;&#10;This reverts commit df3466ee" />
     <MESSAGE value="ajout des login -&gt; on peux s'inscrire et se connecter &#10;-&gt; lors de l'inscription il envoie un mail de verif&#10;-&gt; on peux faire un reset du login&#10;&#10;retest" />
     <MESSAGE value="ajout des login -&gt; on peux s'inscrire et se connecter &#10;-&gt; lors de l'inscription il envoie un mail de verif&#10;-&gt; on peux faire un reset du login&#10;&#10;testEncore" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout des login -&gt; on peux s'inscrire et se connecter &#10;-&gt; lors de l'inscription il envoie un mail de verif&#10;-&gt; on peux faire un reset du login&#10;&#10;testEncore" />
+    <MESSAGE value="Ajout du login en étant admin ou normal user" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout du login en étant admin ou normal user" />
   </component>
 </project>
