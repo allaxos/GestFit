@@ -12,6 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
@@ -124,6 +125,11 @@
         <option value="oracel" />
         <option value="zhun" />
       </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="adminLogin" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -308,7 +314,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -479,6 +487,7 @@
       <map>
         <entry key="Branch">
           <value>
+
             <list />
           </value>
         </entry>
@@ -491,9 +500,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="ajout des login -&gt; on peux s'inscrire et se connecter &#10;-&gt; lors de l'inscription il envoie un mail de verif&#10;-&gt; on peux faire un reset du login" />
     <MESSAGE value="Revert &quot;ajout des login -&gt; on peux s'inscrire et se connecter -&gt; lors de l'inscription il envoie un mail de verif -&gt; on peux faire un reset du login&quot;&#10;&#10;This reverts commit df3466ee" />
     <MESSAGE value="ajout des login -&gt; on peux s'inscrire et se connecter &#10;-&gt; lors de l'inscription il envoie un mail de verif&#10;-&gt; on peux faire un reset du login&#10;&#10;retest" />
+
     <MESSAGE value="Fix beug BOOTSTRAP &amp; TRANS validate EN-&gt;FR" />
     <MESSAGE value="Fix beug bootstrap &amp; TRanformation langue validate en fraqncais" />
     <MESSAGE value="creation branche saadauth" />
