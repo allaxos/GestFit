@@ -8,7 +8,7 @@
                     <div class="card-header">Dashboard</div>
 
                     <div class="card-body">
-                            <p>you are well connext as an admin</p>
+                            <p>email dois etre verifie </p>
                     </div>
                 </div>
             </div>
