@@ -7,8 +7,8 @@
                 <div class="card">
                     <div class="card-header">Dashboard</div>
                     <div class="card-body">
-                        @if(auth()->user()->is_admin == 1)
-                            <a href="{{url('admin/routes')}}">Admin</a>
+                        @if(auth()->user()->email_verified_at == null)
+                            <p>email dois etre verifier</p>
                         @else
                             <div class=”panel-heading”>Normal User</div>
                         @endif

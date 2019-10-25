@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -33,6 +35,24 @@
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="categorie" class="col-md-4 col-form-label text-md-right">{{ __('catégorie') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror" id="categorie" >
+                                    @foreach(session('categorie') as $cat)
+                                        <option value="{{ $cat->id }}">{{$cat->name}}</option>
+                                    @endforeach
+
+                                </select>
+                                @error('categorie')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
