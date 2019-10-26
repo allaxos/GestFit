@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\categorie;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -35,6 +36,13 @@ class RegisterController extends Controller
      *
      * @return void
      */
+    public function showRegistrationForm()
+    {
+        $categorie=categorie::all();
+
+        return view('auth.register')->withCategories($categorie);
+    }
+
     public function __construct()
     {
         $this->middleware('guest');
