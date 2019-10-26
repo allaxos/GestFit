@@ -46,7 +46,7 @@
 
                             <div class="col-md-6">
                                 <select name="categorie" class="custom-select form-control @error('categorie') is-invalid @enderror" id="categorie" >
-                                    @foreach(session('categorie') as $cat)
+                                    @foreach($categories as $cat)
                                         <option value="{{ $cat->id }}">{{$cat->name}}</option>
                                     @endforeach
 
