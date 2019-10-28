@@ -36,13 +36,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto ">
                             @auth
-                                <li class="nav-item" style="margin:0px 5px 0px 5px;">
-                                    <a class="btn btn-primary btn-lg btn-block" href="{{ url('/home') }}">Mon Profil</a>
+                                <li class="nav-item" style="margin:5px 5px 5px 5px;">
+                                    <a class="nav-link btn btn-primary" href="{{ url('/home') }}" style="color:white">Mon Profil</a>
                                 </li>
 
                             @endauth
-                            <li class="nav-item" style="margin:0px 5px 0px 5px;">
-                                <a class="btn btn-primary btn-lg btn-block" href="{{url('contact')}}">Contactez-nous</a>
+                            <li class="nav-item" style="margin:5px 5px 5px 5px;color: white">
+                                <a class="nav-link btn btn-primary" href="{{url('contact')}}" style="color:white">Contactez-nous</a>
                             </li>
                     </ul>
 
@@ -51,21 +51,21 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('SE CONNECTER') }}</a>
+                                <a class="nav-link btn btn-primary" href="{{ route('login') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Se Connecter') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('INSCRIPTION') }}</a>
+                                    <a class="nav-link btn btn-primary" href="{{ route('register') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Inscription') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-primary" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="margin:5px 5px 5px 5px;color: white">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item btn btn-primary" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Se deconnécter') }}

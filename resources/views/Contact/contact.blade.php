@@ -3,7 +3,7 @@
 @section('content')
     <br>
     <div class="container">
-        <div class="row card text-white bg-dark">
+        <div class="row card ">
             <h4 class="card-header">Contactez-Nous</h4>
             <div class="card-body">
                 <form action="{{ url('contact') }}" method="POST">
