@@ -24,11 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(auth()->user()->email_verified_at==null){
-            return view('auth.verify');
-        }else{
+
             return view('/home');
-        }
+
 
     }
 

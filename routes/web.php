@@ -17,12 +17,11 @@ Route::get('/',function(){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Auth::routes(['verify' => true]);
-//Route::get('admin/routes', 'HomeController@verify')->middleware('admin');
+Route::get('admin/routes', 'HomeController@verify')->middleware('admin');
 
-// validation mail
-Route::get('validationMail','validationMailController@isValidate');
+
 
 // contactez-nous
 
