@@ -16,9 +16,11 @@ class MailResetPasswordNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public $token;
+    public function __construct($token)
     {
         //
+        $this->token=$token;
     }
 
     /**
@@ -41,9 +43,14 @@ class MailResetPasswordNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('http://127.0.0.1:8000'))
-                    ->line('Thank you for using our application!');
+            ->subject('Réinitialisation du mot de passe' )
+            ->greeting('Bonjour!')
+            ->line('Vous recevez cet email car nous avons reçu une demande de réinitialisation du mot de passe pour votre compte.')
+            ->action('réinitialisation ', url(config('http://127.0.0.1:8000').route('password.reset',$this->token,false)))
+            ->line('Ce lien de réinitialisation de mot de passe expirera dans 60 minutes.')
+            ->line('Si vous n\'avez pas demandé de réinitialisation de mot de passe, aucune action supplémentaire n\'est requise.')
+            ->line('Cordialement,')
+            ->salutation('Équipes de GesFit');
     }
 
     /**
