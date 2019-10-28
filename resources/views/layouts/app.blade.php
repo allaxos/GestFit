@@ -34,9 +34,16 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li><a href="{{url('contact')}}">Contactez-nous</a></li>
+                    <ul class="navbar-nav mr-auto ">
+                            @auth
+                                <li class="nav-item" style="margin:0px 5px 0px 5px;">
+                                    <a class="btn btn-primary btn-lg btn-block" href="{{ url('/home') }}">Mon Profil</a>
+                                </li>
 
+                            @endauth
+                            <li class="nav-item" style="margin:0px 5px 0px 5px;">
+                                <a class="btn btn-primary btn-lg btn-block" href="{{url('contact')}}">Contactez-nous</a>
+                            </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -61,7 +68,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Se deconnécter') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -69,6 +76,7 @@
                                     </form>
                                 </div>
                             </li>
+
                         @endguest
                     </ul>
                 </div>
