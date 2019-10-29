@@ -21,6 +21,17 @@ Route::get('/home', 'HomeController@index')->name('home')->middleware('verified'
 Auth::routes(['verify' => true]);
 Route::get('admin/routes', 'HomeController@verify')->middleware('admin');
 
+//dispatcher categorie.
+Route::get('/dispatcher','DispatcherController@dispatcher');
+
+//Proprietaire
+
+Route::get('salle-sport-Proprietaire','proprietaire\ProprietaireController@index')->name('proprietaireIndex');
+
+//utilisateur
+
+Route::get('salle-sport-Location/utilisateur','utilisateur\UtilisateurController@index')->name('utilisateurIndex');
+
 
 
 // contactez-nous

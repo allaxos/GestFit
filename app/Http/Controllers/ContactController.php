@@ -24,8 +24,6 @@ class ContactController extends Controller
         ]);
 
 
-
-
         MessageContact::create($validator);
 
         Mail::to('GestFitapplication@gmail.com')

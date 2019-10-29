@@ -38,8 +38,9 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
+        categorie::firstOrCreate(['name'=>'Proprietaire']);
+        categorie::firstOrCreate(['name'=>'Utilisateur']);
         $categorie=categorie::all();
-
         return view('auth.register')->withCategories($categorie);
     }
 

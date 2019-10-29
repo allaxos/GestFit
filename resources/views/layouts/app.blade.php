@@ -20,6 +20,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- icone -->
+    <script src="https://kit.fontawesome.com/ca4b3a032e.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
@@ -37,12 +39,12 @@
                     <ul class="navbar-nav mr-auto ">
                             @auth
                                 <li class="nav-item" style="margin:5px 5px 5px 5px;">
-                                    <a class="nav-link btn btn-primary" href="{{ url('/home') }}" style="color:white">Mon Profil</a>
+                                    <a class="nav-link btn btn-success font-weight-bold" href="{{ url('/home') }}" style="color:white">Mon Profil</a>
                                 </li>
 
                             @endauth
                             <li class="nav-item" style="margin:5px 5px 5px 5px;color: white">
-                                <a class="nav-link btn btn-primary" href="{{url('contact')}}" style="color:white">Contactez-nous</a>
+                                <a class="nav-link btn btn-success font-weight-bold" href="{{url('contact')}}" style="color:white">Contactez-nous</a>
                             </li>
                     </ul>
 
@@ -51,21 +53,21 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link btn btn-primary" href="{{ route('login') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Se Connecter') }}</a>
+                                <a class="nav-link btn btn-success font-weight-bold" href="{{ route('login') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Se Connecter') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link btn btn-primary" href="{{ route('register') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Inscription') }}</a>
+                                    <a class="nav-link btn btn-success font-weight-bold" href="{{ route('register') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Inscription') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-primary" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="margin:5px 5px 5px 5px;color: white">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-success font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="margin:5px 5px 5px 5px;color: white">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item btn btn-primary" href="{{ route('logout') }}"
+                                    <a class="dropdown-item btn btn-success" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Se deconnécter') }}
