@@ -35,6 +35,11 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->notify(new MailResetPasswordNotification($token));
     }
 
+    public function messages(){
+
+        return $this->hasMany(message_users::class);
+    }
+
     /**
      * The attributes that should be cast to native types.
      *

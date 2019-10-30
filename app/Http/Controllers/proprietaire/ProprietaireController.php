@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\proprietaire;
 
+use App\message_users;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,8 +16,9 @@ class ProprietaireController extends Controller
 
     //
     public function index(){
-
-        return view('proprietaire.indexProprietaire');
+        $message= new message_users();
+        $countMessageNotRead=$message->getCountMessageNotRead(auth()->user());
+        return view('proprietaire.indexProprietaire',compact('countMessageNotRead'));
 
     }
 }
