@@ -16,7 +16,9 @@ class UtilisateurController extends Controller
     //
     public function index(){
 
-        return view('utilisateur.indexUtilisateur');
+        $message= new message_users();
+        $countMessageNotRead=$message->getCountMessageNotRead(auth()->user());
+        return view('utilisateur.indexUtilisateur',compact('countMessageNotRead'));
 
     }
 }
