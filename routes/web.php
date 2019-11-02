@@ -38,3 +38,11 @@ Route::get('salle-sport-Location/utilisateur','utilisateur\UtilisateurController
 
 Route::get('contact', 'ContactController@create')->name('contact');
 Route::post('contact', 'ContactController@store')->name('contact');
+
+// salles
+
+route::get('mes-salles','salle\SalleController@index')->name('salleIndex');
+route::get('mes-salles/location/ajouter-une-salle-de-sport','salle\SalleController@create')->name('salleCreate');
+//route::get('mes-salles','salle\SalleController@edit')->name('salleEdit');
+route::delete('mes-salles/{salle}','salle\SalleController@destroy')->name('salleDestroy');
+route::post('mes-salles/','salle\SalleController@store')->name('salleStore');
