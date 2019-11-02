@@ -21,7 +21,7 @@ class SalleController extends Controller
 
     public function index()
     {
-        $salles=Salle::where('fk_user',auth()->user()->id)->get();
+        $salles=Salle::where('user_id',auth()->user()->id)->latest()->paginate(4);
 
         return view('salle/salleIndex',compact('salles'));
     }
@@ -33,7 +33,9 @@ class SalleController extends Controller
      */
     public function create()
     {
-        //
+        $localites=Localite::all();
+
+        return view('salle.creationSalle',compact('localites'));
     }
 
     /**
@@ -44,7 +46,18 @@ class SalleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->request->set('user_id' ,auth()->user()->id);
+        $validator = $request->validate( [
+            'name' => 'bail|required|between:2,20|alpha',
+            'adresse' => 'bail|required',
+            'localite_id' => 'required|integer',
+            'description' => 'bail|required|max:900',
+            'user_id' => ''
+        ]);
+
+        Salle::create($validator);
+
+        return redirect(route('salleIndex'))->with('infoSuccess', 'La salle a bien été enregistré.');
     }
 
     /**
@@ -53,10 +66,7 @@ class SalleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -87,8 +97,15 @@ class SalleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Salle $salle)
     {
-        //
+
+        if(auth()->user()->id == $salle->user_id){
+            $salle->delete();
+            return back()->with('infoDanger', 'La salle a bien été supprimé .');
+        }
+
+
+        return back()->with('infoDanger', 'Vous n\'avez pas les autorisations pour cette action .');
     }
 }

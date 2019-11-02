@@ -41,9 +41,8 @@ Route::post('contact', 'ContactController@store')->name('contact');
 
 // salles
 
-Route::resource('salle', 'salle\SalleController');
-//route::get('mes-salles','salle\SalleController@index')->name('salleIndex');
-//route::get('mes-salles','salle\SalleController@show')->name('salleShow');
+route::get('mes-salles','salle\SalleController@index')->name('salleIndex');
+route::get('mes-salles/location/ajouter-une-salle-de-sport','salle\SalleController@create')->name('salleCreate');
 //route::get('mes-salles','salle\SalleController@edit')->name('salleEdit');
-//route::post('mes-salles','salle\SalleController@creat')->name('salleCreat');
-//route::delete('mes-salles','salle\SalleController@destroy')->name('salleDestroy');
+route::delete('mes-salles/{salle}','salle\SalleController@destroy')->name('salleDestroy');
+route::post('mes-salles/','salle\SalleController@store')->name('salleStore');

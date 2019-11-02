@@ -18,6 +18,7 @@ class CreateSallesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('description');
+            $table->string('adresse');
             $table->unsignedBigInteger('localite_id');
             $table->unsignedBigInteger('user_id');
            // $table->foreign('fk_localite')->references('id')->on('localites');
