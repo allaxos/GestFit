@@ -43,6 +43,7 @@ Route::post('contact', 'ContactController@store')->name('contact');
 
 route::get('mes-salles','salle\SalleController@index')->name('salleIndex');
 route::get('mes-salles/location/ajouter-une-salle-de-sport','salle\SalleController@create')->name('salleCreate');
-//route::get('mes-salles','salle\SalleController@edit')->name('salleEdit');
+route::get('mes-salles/{salle}/location/salle-sport/modification','salle\SalleController@edit')->name('salleEdit');
+route::put('mes-salles/{salle}','salle\SalleController@update')->name('salleUpdate');
 route::delete('mes-salles/{salle}','salle\SalleController@destroy')->name('salleDestroy');
 route::post('mes-salles/','salle\SalleController@store')->name('salleStore');

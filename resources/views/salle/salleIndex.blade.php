@@ -31,19 +31,19 @@
                     <div class="card-content">
                         <div class="content">
                             <br>
-                            <h5>Date : </h5>
+                            <h5>Date de création : </h5>
                             <p>{{$salle->created_at->format('d/m/y')}}</p>
                             <hr>
                             <h5>Adresse : </h5>
                             <p> {{$salle->adresse}}</p>
-                            <p> cp :{{$salle->localite->codePostal}} {{$salle->localite->name}}</p>
+                            <p> {{$salle->localite->codePostal}} {{$salle->localite->name}}</p>
                             <hr>
                             <h5>Description :</h5>
                             <p>{{$salle->description}}</p>
                             <hr>
                             <div class="d-flex justify-content-around">
                                 <!-- route('salle.edit', $salle->id) }}-->
-                            <a class="btn btn-outline-success" href="#"> <i class="far fa-edit"></i> Modifier</a>
+                            <a class="btn btn-outline-success" href="{{route('salleEdit',$salle->id)}}"> <i class="far fa-edit"></i> Modifier</a>
 
                             <form action="{{route('salleDestroy', $salle->id) }}" method="post" style="display: inline">
                                 @csrf
