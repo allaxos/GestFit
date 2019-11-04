@@ -48,7 +48,7 @@ class SalleController extends Controller
     {
         $request->request->set('user_id' ,auth()->user()->id);
         $validator = $request->validate( [
-            'name' => 'bail|required|between:2,20|alpha',
+            'name' => 'bail|required',
             'adresse' => 'bail|required',
             'localite_id' => 'required|integer',
             'description' => 'bail|required|max:900',
@@ -92,7 +92,7 @@ class SalleController extends Controller
     {
         $request->request->set('user_id' ,auth()->user()->id);
         $validator = $request->validate( [
-            'name' => 'bail|required|between:2,20|alpha',
+            'name' => 'bail|required',
             'adresse' => 'bail|required',
             'localite_id' => 'required|integer',
             'description' => 'bail|required|max:900',
@@ -103,7 +103,7 @@ class SalleController extends Controller
             return redirect(route('salleIndex'))->with('infoSuccess', 'Le film a bien été modifié');
         }
 
-        return back()->with('infoDanger', 'Vous n\'avez pas les autorisations pour cette action .');
+        return redirect(route('salleIndex'))->with('infoDanger', 'Vous n\'avez pas les autorisations pour cette action .');
         //
     }
 
