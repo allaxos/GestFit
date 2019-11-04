@@ -13,6 +13,7 @@ class ProfilController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('verified');
     }
 
     public function index(){
@@ -37,18 +38,33 @@ class ProfilController extends Controller
         return view('profil.modificationProfil');
     }
 
-    public function update(Request $request){
+    public function updateData(Request $request){
 
         $data=$request->validate([
                 'name' => ['required', 'string', 'max:50'],
                 'lastName' => ['required', 'string', 'max:50'],
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             ]);
         $user=auth::user();
+
+        $user->update($data);
+        return redirect(route('profilIndex'))->with('infoSuccess',"Votre profil a bien été mis à jour.");
+
+    }
+
+    public function updateEmail(Request $request){
+
+        $request->request->set('email_verified_at' ,null);
+        $data=$request->validate([
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email_verified_at' => '',
+        ]);
+
+        $user=auth::user();
+        $user->email_verified_at=null;
+        $user->save();
         $user->update($data);
 
-        return redirect(route('profilIndex'))->with('infoSuccess',"Votre mot de passe a bien été mis à jour.");
-
+        return redirect(route('profilIndex'))->with('infoSuccess',"Votre profil a bien été mis à jour.");
 
     }
 }

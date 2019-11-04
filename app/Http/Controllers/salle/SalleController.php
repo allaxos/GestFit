@@ -16,6 +16,8 @@ class SalleController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('verified');
+
         $this->middleware('auth');
     }
 
@@ -96,7 +98,7 @@ class SalleController extends Controller
             'adresse' => 'bail|required',
             'localite_id' => 'required|integer',
             'description' => 'bail|required|max:900',
-            'user_id' => ''
+            'user_id' => '',
         ]);
         if(auth()->user()->id == $salle->user_id) {
             $salle->update($validator);

@@ -45,7 +45,8 @@ Route::get('Mon-profil','ProfilController@index')->name('profilIndex');
 Route::get('Mon-Profil/contactez-Nous','ProfilController@contact')->name('profilContact');
 Route::get('Mon-Profil/reset','ProfilController@resetPassword')->name('profilRest');
 Route::get('Mon-Profil/modification','ProfilController@edit')->name('profilEdit');
-route::put('Mon-profil/Mise-a-jour','ProfilController@update')->name('profilUpdate');
+route::put('Mon-profil/Mise-a-jour/donnees','ProfilController@updateData')->name('profilUpdateData');
+route::put('Mon-profil/Mise-a-jour/email','ProfilController@updateEmail')->name('profilUpdateEmail');
 
 
 // salles
