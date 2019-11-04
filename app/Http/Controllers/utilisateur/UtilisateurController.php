@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\utilisateur;
 
+use App\message_users;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

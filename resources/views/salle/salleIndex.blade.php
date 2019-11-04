@@ -6,14 +6,14 @@
         <hr>
 
         @if(session()->has('infoDanger'))
-            <div class="bg-danger text-center " style="color: white;">
+            <div class="alert alert-danger text-center " role="alert" style="color: white;">
                 {{ session('infoDanger') }}
             </div>
             <br>
         @endif
 
         @if(session()->has('infoSuccess'))
-            <div class="bg-success text-center " style="color: white;">
+            <div class="alert alert-success" role="alert">
                 {{ session('infoSuccess') }}
             </div>
             <br>

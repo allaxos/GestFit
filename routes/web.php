@@ -12,6 +12,8 @@
 */
 
 Route::get('/',function(){
+
+    // doit etre remplcer par le redertct::to('http://www.gesfit.be') -> wordpress de l'accueil
     return view('welcome');
 });
 
@@ -32,12 +34,20 @@ Route::get('salle-sport-Proprietaire','proprietaire\ProprietaireController@index
 
 Route::get('salle-sport-Location/utilisateur','utilisateur\UtilisateurController@index')->name('utilisateurIndex');
 
-
-
 // contactez-nous
 
 Route::get('contact', 'ContactController@create')->name('contact');
 Route::post('contact', 'ContactController@store')->name('contact');
+
+// Profil
+
+Route::get('Mon-profil','ProfilController@index')->name('profilIndex');
+Route::get('Mon-Profil/contactez-Nous','ProfilController@contact')->name('profilContact');
+Route::get('Mon-Profil/reset','ProfilController@resetPassword')->name('profilRest');
+Route::get('Mon-Profil/modification','ProfilController@edit')->name('profilEdit');
+route::put('Mon-profil/Mise-a-jour/donnees','ProfilController@updateData')->name('profilUpdateData');
+route::put('Mon-profil/Mise-a-jour/email','ProfilController@updateEmail')->name('profilUpdateEmail');
+
 
 // salles
 
