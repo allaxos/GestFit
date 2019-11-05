@@ -18,7 +18,7 @@
 
 
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header bg-success btn-lg btn-block font-weight-bold" style="color: white;font-size: 200%"><i class="far fa-envelope"></i> Messagerie </div>
                     <div class="card-body">
@@ -35,20 +35,21 @@
                             <tbody>
                             @foreach($listMessagesRecu as $messageRecu)
                                 @if($messageRecu->is_read==0)
-                                    <tr class="table-info">
+                                    <tr class="font-weight-bold text-primary">
                                         @else
-                                    <tr>
+                                    <tr class="font-weight-light">
                                         @endif
                                 <td >{{$messageRecu->created_at}}</td>
-                                <td>{{$messageRecu->user->name}}</td>
+                                <td>{{$messageRecu->user->name}} {{$messageRecu->user->lastName}}</td>
                                 <td>{{$messageRecu->objet}}</td>
                                         <td>
+                                            <a class="btn btn-outline-primary btn-sm text-primary" href="{{route('mesagerieCreate',$messageRecu)}}"><i class="fab fa-readme"></i></a>
+                                            <a class="btn btn-outline-success btn-sm text-success" href="{{route('mesagerieCreate',$messageRecu)}}"><i class="fas fa-reply"></i></a>
                                             <form method="post" action="{{route('messagerieDelete', $messageRecu->id)}}" style="display: inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-outline-danger btn-sm text-danger" type="submit"><i class="far fa-trash-alt"></i></button>
                                             </form>
-                                            <a class="btn btn-outline-success btn-sm text-success" href="{{route('mesagerieRepondre',$messageRecu)}}"><i class="fas fa-reply"></i></a>
                                         </td>
                             </tr>
                             @endforeach

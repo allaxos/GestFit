@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\messagerie;
 
 use App\message_users;
-use App\MessageContact;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -38,9 +37,27 @@ class MessagerieController extends Controller
         return back()->with('infoDanger', 'Vous n\'avez pas les autorisations pour cette action .');
     }
 
-    public function repondre(message_users $message_users){
+    public function create($id){
 
-        return view('messagerie.messagerieRepondre');
+        $message=message_users::find($id);
+        return view('messagerie.messagerieSeeder',compact('message'));
 
+    }
+
+
+    public function send(Request $request){
+
+        $request->request->set('user_id',auth()->user()->id);
+        $data= $request->validate(
+            [
+                'objet' => 'required|max:50',
+                'message' => 'required',
+                'user_id' => '',
+                'fk_user_received' => 'required'
+            ]
+        );
+
+        message_users::create($data);
+        return redirect(route('messagerieIndex'))->with('infoSuccess', 'Votre message a bien été envoyé .');
     }
 }

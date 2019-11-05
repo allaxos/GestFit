@@ -14,7 +14,7 @@ class CreateMessageUsersTable extends Migration
     public function up()
 
     {
-        Schema::disableForeignKeyConstraints();
+       // Schema::disableForeignKeyConstraints();
         Schema::create('message_users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('objet');

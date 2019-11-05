@@ -13,7 +13,7 @@
 
 Route::get('/',function(){
 
-    // doit etre remplcer par le redertct::to('http://www.gesfit.be') -> wordpress de l'accueil
+    // doit etre remplcer par le return rediret::to('http://www.gesfit.be') -> wordpress de l'accueil
     return view('welcome');
 });
 
@@ -21,7 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Auth::routes(['verify' => true]);
-Route::get('admin/routes', 'HomeController@verify')->middleware('admin');
+// pas d'administration
+//Route::get('admin/routes', 'HomeController@verify')->middleware('admin');
 
 //dispatcher categorie.
 Route::get('/dispatcher','DispatcherController@dispatcher');
@@ -43,7 +44,9 @@ Route::post('contact', 'ContactController@store')->name('contact');
 
 Route::get('Mes-messages','messagerie\MessagerieController@index')->name('messagerieIndex');
 Route::delete('Mes-messages/{message}','messagerie\MessagerieController@destroy')->name('messagerieDelete');
-Route::get('Mes-messages/repondre/{message}','messagerie\MessagerieController@repondre')->name('mesagerieRepondre');
+Route::get('Mes-messages/repondre/{message}','messagerie\MessagerieController@create')->name('mesagerieCreate');
+Route::post('Mes-messages/repondre/','messagerie\MessagerieController@send')->name('messagerieSend');
+
 // Profil
 
 Route::get('Mon-profil','ProfilController@index')->name('profilIndex');

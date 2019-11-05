@@ -8,8 +8,9 @@ class message_users extends Model
 {
     //
     protected $fillable =[
+        'objet',
         'message',
-        'fk_user_seeder',
+        'user_id',
         'fk_user_received',
         ];
 
