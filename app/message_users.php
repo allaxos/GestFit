@@ -8,8 +8,9 @@ class message_users extends Model
 {
     //
     protected $fillable =[
+        'objet',
         'message',
-        'fk_user_seeder',
+        'user_id',
         'fk_user_received',
         ];
 
@@ -18,7 +19,7 @@ class message_users extends Model
     }
 
     public function getCountMessageNotRead(User $user){
-
+        //user_id = user recieved
         $messageNotRed=message_users::where('fk_user_received','=',$user->id)->where('is_read','0');
         return $messageNotRed->count();
 
