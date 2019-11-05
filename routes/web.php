@@ -39,6 +39,11 @@ Route::get('salle-sport-Location/utilisateur','utilisateur\UtilisateurController
 Route::get('contact', 'ContactController@create')->name('contact');
 Route::post('contact', 'ContactController@store')->name('contact');
 
+// Messagerie
+
+Route::get('Mes-messages','messagerie\MessagerieController@index')->name('messagerieIndex');
+Route::delete('Mes-messages/{message}','messagerie\MessagerieController@destroy')->name('messagerieDelete');
+
 // Profil
 
 Route::get('Mon-profil','ProfilController@index')->name('profilIndex');
