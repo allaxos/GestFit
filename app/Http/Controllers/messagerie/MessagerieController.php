@@ -38,4 +38,9 @@ class MessagerieController extends Controller
         return back()->with('infoDanger', 'Vous n\'avez pas les autorisations pour cette action .');
     }
 
+    public function repondre(message_users $message_users){
+
+        return view('messagerie.messagerieRepondre');
+
+    }
 }

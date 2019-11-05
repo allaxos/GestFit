@@ -43,7 +43,7 @@ Route::post('contact', 'ContactController@store')->name('contact');
 
 Route::get('Mes-messages','messagerie\MessagerieController@index')->name('messagerieIndex');
 Route::delete('Mes-messages/{message}','messagerie\MessagerieController@destroy')->name('messagerieDelete');
-
+Route::get('Mes-messages/repondre/{message}','messagerie\MessagerieController@repondre')->name('mesagerieRepondre');
 // Profil
 
 Route::get('Mon-profil','ProfilController@index')->name('profilIndex');

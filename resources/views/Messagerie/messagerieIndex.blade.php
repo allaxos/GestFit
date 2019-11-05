@@ -48,7 +48,7 @@
                                                 @method('DELETE')
                                                 <button class="btn btn-outline-danger btn-sm text-danger" type="submit"><i class="far fa-trash-alt"></i></button>
                                             </form>
-                                            <a class="btn btn-outline-success btn-sm text-success"><i class="fas fa-reply"></i></a>
+                                            <a class="btn btn-outline-success btn-sm text-success" href="{{route('mesagerieRepondre',$messageRecu)}}"><i class="fas fa-reply"></i></a>
                                         </td>
                             </tr>
                             @endforeach
