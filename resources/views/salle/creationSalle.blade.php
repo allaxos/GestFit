@@ -10,7 +10,7 @@
                         <form action="{{route('salleStore')}}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" id="name" placeholder="Titre Salle..." value="{{ old('nom') }}">
+                                <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" id="name" placeholder="Titre Salle..." value="{{ old('name') }}">
                                 @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -23,7 +23,7 @@
                             </div>
                             <div class="form-group">
                             <select class="form-control  @error('localite_id') is-invalid @enderror" name="localite_id" id="localite_id" >
-                                <option value=''>Localitée :  </option>
+                                <option  value=''>Localitée :  </option>
                             @foreach($localites as $localite)
                                     <option value="{{ $localite->id }}">{{$localite->name}}</option>
                                 @endforeach
@@ -39,7 +39,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-success font-weight-bold">Envoyer !</button>
+                            <button type="submit" class="btn btn-success font-weight-bold">Enregister</button>
                         </form>
                     </div>
                 </div>
