@@ -43,6 +43,7 @@ Route::post('contact', 'ContactController@store')->name('contact');
 // Messagerie
 
 Route::get('Mes-messages','messagerie\MessagerieController@index')->name('messagerieIndex');
+Route::get('Mes-messages/{message}','messagerie\MessagerieController@read')->name('messagerieShow');
 Route::delete('Mes-messages/{message}','messagerie\MessagerieController@destroy')->name('messagerieDelete');
 Route::get('Mes-messages/repondre/{message}','messagerie\MessagerieController@create')->name('mesagerieCreate');
 Route::post('Mes-messages/repondre/','messagerie\MessagerieController@send')->name('messagerieSend');
@@ -65,3 +66,6 @@ route::get('mes-salles/{salle}/location/salle-sport/modification','salle\SalleCo
 route::put('mes-salles/{salle}','salle\SalleController@update')->name('salleUpdate');
 route::delete('mes-salles/{salle}','salle\SalleController@destroy')->name('salleDestroy');
 route::post('mes-salles/','salle\SalleController@store')->name('salleStore');
+
+// annonces
+route::get('Mes-annonces/Salles/salle-de-sport/location/','AnnonceController@index')->name('annonceIndex');

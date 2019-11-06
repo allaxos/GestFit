@@ -25,6 +25,14 @@ class MessagerieController extends Controller
         return view('messagerie.messagerieIndex',compact('countMessageNotRead','listMessagesRecu'));
     }
 
+    public function read($id){
+        $messageRecu=message_users::find($id);
+        $messageRecu->is_read=1;
+        $messageRecu->save();
+
+        return view('messagerie.messagerieAffiche',compact('messageRecu'));
+    }
+
     public function destroy($id){
         $message_users=message_users::find($id);
 
