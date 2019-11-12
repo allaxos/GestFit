@@ -29,11 +29,11 @@ Route::get('/dispatcher','DispatcherController@dispatcher');
 
 //Proprietaire
 
-Route::get('salle-sport-Proprietaire','proprietaire\ProprietaireController@index')->name('proprietaireIndex');
+Route::get('salle-sport-Proprietaire','proprietaire\ProprietaireController@index')->name('proprietaireIndex')->middleware('utilisateur');
 
 //utilisateur
 
-Route::get('salle-sport-Location/utilisateur','utilisateur\UtilisateurController@index')->name('utilisateurIndex');
+Route::get('salle-sport-Location/utilisateur','utilisateur\UtilisateurController@index')->name('utilisateurIndex')->middleware('proprio');
 
 // contactez-nous
 
