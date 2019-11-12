@@ -15,7 +15,7 @@ class DispatcherProprio
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->categorie == 0){
+        if(auth()->user()->categorie == 1){
             return $next($request);
         }
         return redirect('/home')->with("infoDanger’,’vous n'aveez pas le droit");
