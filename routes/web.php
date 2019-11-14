@@ -24,7 +24,7 @@ Auth::routes(['verify' => true]);
 // pas d'administration
 //Route::get('admin/routes', 'HomeController@verify')->middleware('admin');
 
-//dispatcher categorie.
+//dispatcher categorie
 Route::get('/dispatcher','DispatcherController@dispatcher');
 
 //Proprietaire
@@ -69,3 +69,4 @@ route::post('mes-salles/','salle\SalleController@store')->name('salleStore');
 
 // annonces
 route::get('Mes-annonces/Salles/salle-de-sport/location/','AnnonceController@index')->name('annonceIndex');
+
