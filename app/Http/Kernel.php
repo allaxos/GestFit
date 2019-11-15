@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
         'validMail' =>\App\Http\Middleware\VerificatedMail::class,
         'utilisateur' =>\App\Http\Middleware\DispatcherUtilisateur::class,
         'proprio' =>\App\Http\Middleware\DispatcherProprio::class,
+        'notAdmin' =>\App\Http\Middleware\NotAdmin::class,
     ];
 
     /**
