@@ -14,6 +14,7 @@ class ProfilController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('verified');
+
     }
 
     public function index(){
@@ -66,4 +67,5 @@ class ProfilController extends Controller
         return redirect(route('profilIndex'))->with('infoSuccess',"Votre profil a bien été mis à jour.");
 
     }
+
 }

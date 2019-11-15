@@ -19,9 +19,9 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name','lastName', 'email', 'password','categorie','is_admin',
+        'name','lastName', 'email', 'password','categorie','is_admin'
     ];
-
+    protected $attributes=['is_admin'=> 0];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -44,6 +44,18 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $this->hasMany(message_users::class);
     }
+/*/
+    public function getAdminAttribute($attributes){
+        return $this->getAdminOption()[$attributes];
+    }
+    public function getAdminOption(){
+        return [
+
+            '0' =>'noAdmin',
+            '1' =>'admin',
+        ];
+    }
+*/
 
     /**
      * The attributes that should be cast to native types.
