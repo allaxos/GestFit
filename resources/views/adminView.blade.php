@@ -29,7 +29,13 @@
                         <td>@if($user->email_verified_at){{ $user->email_verified_at->formatLocalized('%x') }}@endif</td>
                         <td>{{$user->getCategorieOption($user)}}</td>
                         <td>{{(new App\message_users)->getCountMessage($user)}}</td>
-
+                        <td>
+                            @if($user->is_admin==0)
+                            <a type="button" href="{{ route('adminDestroy', $user->id) }}"
+                               class="btn btn-danger btn-sm pull-right" data-toggle="tooltip"
+                               title="@lang("Supprimer l'utilisateur") {{ $user->name }}"><i class="fas fa-trash fa-lg"></i></a>
+                            @endif
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

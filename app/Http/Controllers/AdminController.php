@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\message_users;
 use App\Repositories\UserRepository;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -16,6 +17,7 @@ class AdminController extends Controller
         $this->middleware('verified');
         $this->middleware('admin');
         $this->repository=$repository;
+
     }
     //
     public function index(){
@@ -26,6 +28,11 @@ class AdminController extends Controller
         return view('adminView',compact('users'));
     }
 
+    public function destroy( User $user)
+    {
+        $user->delete ();
+        return back()->with('infoDanger', 'Lutilisateur a bien été supprimé .');
+    }
 
 
 }

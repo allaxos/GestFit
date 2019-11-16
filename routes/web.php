@@ -23,6 +23,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('admin/index','AdminController@index')->name('adminIndex')->middleware('admin');
 Route::get('admin/show','AdminController@show')->name('adminView')->middleware('admin');
+Route::get('admin/destroy/{user}','AdminController@destroy')->name('adminDestroy')->middleware('admin');
 
 //fin admin
 //dispatcher categorie
