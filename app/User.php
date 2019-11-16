@@ -30,6 +30,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
+    protected $dates=[
+        'created_at',
+        'updated_at',
+        'email_verified_at',
+    ];
 
     public function sendPasswordResetNotification($token)
     {
@@ -44,18 +49,23 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $this->hasMany(message_users::class);
     }
-/*/
-    public function getAdminAttribute($attributes){
-        return $this->getAdminOption()[$attributes];
-    }
-    public function getAdminOption(){
-        return [
 
-            '0' =>'noAdmin',
-            '1' =>'admin',
-        ];
+    public function getCategorieOption(){
+
+        switch ('categorie'){
+            case 0:
+                return "propriétaire";
+                break;
+
+            case 1:
+                return "utilisateur";
+                break;
+            default:
+                return "admin";
+        }
+
     }
-*/
+
 
     /**
      * The attributes that should be cast to native types.

@@ -13,6 +13,8 @@ class MessagerieController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('verified');
+        $this->middleware('notAdmin');
+
     }
 
     public function index(){

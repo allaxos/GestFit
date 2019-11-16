@@ -14,6 +14,8 @@ class ProfilController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('verified');
+        $this->middleware('notAdmin');
+
 
     }
 

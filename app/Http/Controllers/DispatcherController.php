@@ -13,13 +13,13 @@ class DispatcherController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('verified');
+
     }
 
     public function dispatcher(){
         if(auth()->user()->is_admin==1){
             return redirect(route('adminIndex'));
         }
-
         else {
 
             if (auth()->user()->categorie == 1) {

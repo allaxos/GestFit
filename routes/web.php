@@ -16,12 +16,15 @@ Route::get('/',function(){
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Auth::routes(['verify' => true]);
-// pas d'administration
-//Route::get('admin/routes', 'HomeController@verify')->middleware('admin');
+
 //admin
 
-Route::get('admin/index','AdminController@index')->name('adminIndex')->middleware('admin');
 
+
+Route::get('admin/index','AdminController@index')->name('adminIndex')->middleware('admin');
+Route::get('admin/show','AdminController@show')->name('adminView')->middleware('admin');
+
+//fin admin
 //dispatcher categorie
 Route::get('/dispatcher','DispatcherController@dispatcher')->name('dispatch');
 //Proprietaire
