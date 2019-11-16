@@ -67,7 +67,7 @@
                         @endif
                     @else
 
-                            @if(auth()->user()->is_admin==0) //afficher que si l'utilisateur est un utilisateur normal
+                            @if(auth()->user()->is_admin==0)
                                 <li class="nav-item" style="margin:5px 5px 5px 5px;color: white">
                                     <a class="nav-link btn btn-success font-weight-bold" href="{{url('contact')}}" style="color:white">Contactez-nous</a>
                                 </li>

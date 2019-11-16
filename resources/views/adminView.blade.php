@@ -27,7 +27,7 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->created_at->formatLocalized('%x') }}</td>
                         <td>@if($user->email_verified_at){{ $user->email_verified_at->formatLocalized('%x') }}@endif</td>
-                        <td>{{$user->getCategorieOption()}}</td>
+                        <td>{{$user->getCategorieOption($user)}}</td>
                         <td>{{(new App\message_users)->getCountMessage($user)}}</td>
 
                     </tr>

@@ -50,14 +50,14 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(message_users::class);
     }
 
-    public function getCategorieOption(){
+    public function getCategorieOption($user){
 
-        switch ('categorie'){
-            case 0:
+        switch ($user->categorie){
+            case 1:
                 return "propriétaire";
                 break;
 
-            case 1:
+            case 2:
                 return "utilisateur";
                 break;
             default:
