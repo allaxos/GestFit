@@ -25,41 +25,35 @@
 </head>
 <body>
     <div id="app">
-        <nav  class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="background-color:aliceblue;">
-            <div class="container" >
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="images/logo.png" style="height: 150px"/>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav class="navbar navbar-light fixed-top" style="box-shadow: 1px 1px 12px #555; background-color: #28A745; color: white;">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <a style="color: white" href="{{ url('/') }}">
+                    <h1> <i class="fas fa-basketball-ball" style="margin-right: 5px"></i><strong>Ges</strong>Fit</h1>
+                </a>
+
+                <div class="top-right">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto ">
                             @auth
-                                <li class="nav-item" style="margin:5px 5px 5px 5px;">
-                                    <a class="nav-link btn btn-success font-weight-bold" href="{{ url('/home') }}" style="color:white">Tableau de bord</a>
-                                </li>
+                                    <a  href="{{ url('/home') }}" style="color:white">Tableau de bord</a>
 
                             @endauth
-                            <li class="nav-item" style="margin:5px 5px 5px 5px;color: white">
-                                <a class="nav-link btn btn-success font-weight-bold" href="{{url('contact')}}" style="color:white">Contactez-nous</a>
-                            </li>
+
+                                <!--<a href="{{url('contact')}}" style="color:white">Contactez-nous</a>-->
 
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-success font-weight-bold" href="{{ route('login') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Se Connecter') }}</a>
-                            </li>
+
+                                <a  href="{{ route('login') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Se Connecter') }}</a>
+
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link btn btn-success font-weight-bold" href="{{ route('register') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Inscription') }}</a>
-                                </li>
+
+                                    <a  href="{{ route('register') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Inscription') }}</a>
                             @endif
+
                         @else
+
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-success font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="margin:5px 5px 5px 5px;color: white">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="margin:5px 5px 5px 5px;color: white">
                                     {{ Auth::user()->name }} {{Auth::user()->lastName }}<span class="caret"></span>
                                 </a>
 
@@ -79,12 +73,54 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
+
         </nav>
 
-        <main class="py-4">
+        <div class="container">
+            <div class="col-sm" style="text-align: center; margin-top: 250px; margin-bottom: 250px">
             @yield('content')
-        </main>
+            </div>
+        </div>
     </div>
+
+    <footer class="page-footer font-small blue pt-4">
+        <div class="container-fluid text-center text-md-left">
+            <div class="row">
+                <div class="col-md-4 mt-md-0 mt-3  text-center">
+                    <h5 class="text-uppercase">Réseaux</h5>
+                    <a href="#" style="color: #2b2b2b"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: #2b2b2b"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color: #2b2b2b"><i class="fab fa-facebook-square"></i></a>
+                </div>
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <div class="col-md-5 mb-md-0 mb-3  text-center">
+                    <h5 class="text-uppercase">GesFit</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href=" {{ url('/apropos') }} ">A propos</a>
+                        </li>
+                        <li>
+                            <a href=" {{ url('/politique_confidentialite') }} ">Politique de confidentialité</a>
+                        </li>
+                        <li>
+                            <a href="{{url('contact')}}">Contactez-nous</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-md-0 mb-3 text-center">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Rue de la limite 6, 1300 Wavre</p>
+
+                    <i class="fas fa-envelope"></i>
+                    <p>gesfit.info@gesfir.be</p>
+
+                    <i class="fas fa-phone-alt"></i>
+                    <p>02 000 000</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright text-center py-3"><p>© 2019 Copyright IFOSupWavre</p>
+        </div>
+    </footer>
 </body>
 </html>
