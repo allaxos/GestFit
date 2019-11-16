@@ -52,7 +52,7 @@
 
                         @else
 
-                            <li class="nav-item dropdown">
+                            <div class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="margin:5px 5px 5px 5px;color: white">
                                     {{ Auth::user()->name }} {{Auth::user()->lastName }}<span class="caret"></span>
                                 </a>
@@ -68,10 +68,10 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
+                            </div>
 
                         @endguest
-                    </ul>
+
                 </div>
 
         </nav>
