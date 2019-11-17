@@ -34,7 +34,15 @@ class message_users extends Model
             ->get();
 
         return $listMessageConversation;
+    }
+    public function getAllListMessageConversation($message){
 
+        $listMessageConversation=message_users::where('conversation_id','=',$message->conversation_id)
+            ->where('created_at','<=',$message->created_at)
+            ->latest()
+            ->get();
+
+        return $listMessageConversation;
     }
 
 }

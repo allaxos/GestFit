@@ -47,7 +47,7 @@
                             @endif
                             <p>Sujet : {{$lastMessage->objet}}</p>
                             <p>Message :</p>
-                            <p>{{$lastMessage->message}}</p><hr>
+                            <p>{{$lastMessage->message}}</p>
                         </div>
                 @endforeach
         </div>

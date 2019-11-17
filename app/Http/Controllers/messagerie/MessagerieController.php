@@ -29,6 +29,8 @@ class MessagerieController extends Controller
     public function read($id){
         // changement de l'etat de non lut
         $messageRecu=message_users::find($id);
+        if(auth()->user()->id == $messageRecu->fk_user_received){
+
         $messageRecu->is_read=1;
 
 
@@ -41,12 +43,12 @@ class MessagerieController extends Controller
 
         $messageRecu->save();
 
-
         // chargement de la conversasion
         $conversations=new message_users();
         $conversations=$conversations->getListMessageConversation($messageRecu);
 
         return view('messagerie.messagerieAffiche',compact('messageRecu','conversations'));
+        }
     }
 
     public function destroy($id){
@@ -63,16 +65,17 @@ class MessagerieController extends Controller
 
     public function create($id){
         $message=message_users::find($id);
-
-        //creation d'un nouvelle connversation si pas le cas
-        if($message->conversation_id==0) {
-            $conversation = new conversation();
-            $conversation->save();
-            $message->conversation_id = $conversation->id;
-        }
-
         if(auth()->user()->id == $message->fk_user_received){
-            return view('messagerie.messagerieSeeder',compact('message'));
+        //creation d'un nouvelle connversation si pas le cas
+            if($message->conversation_id==0) {
+                $conversation = new conversation();
+                $conversation->save();
+                $message->conversation_id = $conversation->id;
+            }
+            $conversations=new message_users();
+            $conversations=$conversations->getAllListMessageConversation($message);
+
+            return view('messagerie.messagerieSeeder',compact('message','conversations'));
         }else{
             return ' pas le droit ';
         }
@@ -92,8 +95,6 @@ class MessagerieController extends Controller
                 'conversation_id' => ''
             ]
         );
-
-
 
         message_users::create($data);
         return redirect(route('messagerieIndex'))->with('infoSuccess', 'Votre message a bien été envoyé .');
