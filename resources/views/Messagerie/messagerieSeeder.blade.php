@@ -22,6 +22,7 @@
                         @csrf
                         <h5>Destinataire : {{$message->user->name}} {{$message->user->lastName}}</h5><br>
                         <input type="hidden" name="fk_user_received" value="{{$message->user->id}}">
+                        <input type="hidden" name="conversation_id" value="{{$message->conversation_id}}">
                         <div class="form-group">
                             <input type="text" class="form-control  @error('objet') is-invalid @enderror" name="objet" id="objet" placeholder="Sujet..." value="{{ old('objet') }}">
                             @error('objet')

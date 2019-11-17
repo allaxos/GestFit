@@ -12,6 +12,7 @@ class message_users extends Model
         'message',
         'user_id',
         'fk_user_received',
+        'conversation_id',
         ];
 
     public function user() {
@@ -22,6 +23,17 @@ class message_users extends Model
         //user_id = user recieved
         $messageNotRed=message_users::where('fk_user_received','=',$user->id)->where('is_read','0');
         return $messageNotRed->count();
+
+    }
+
+    public function getListMessageConversation($message){
+
+        $listMessageConversation=message_users::where('conversation_id','=',$message->conversation_id)
+            ->where('created_at','<',$message->created_at)
+            ->latest()
+            ->get();
+
+        return $listMessageConversation;
 
     }
 
