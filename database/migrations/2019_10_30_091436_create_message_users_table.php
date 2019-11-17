@@ -21,6 +21,7 @@ class CreateMessageUsersTable extends Migration
             $table->text('message');
             $table->unsignedBigInteger('user_id'); // seeder
             $table->unsignedBigInteger('fk_user_received');
+            $table->unsignedBigInteger('conversation_id')->default(0);
             $table->boolean('is_read')->default(false);
             //$table->foreign('fk_user_seeder')->references('id')->on('users')->onDelete('restrict')->onUpdate('restrict');
             //$table->foreign('fk_user_received')->references('id')->on('users')->onDelete('restrict')->onUpdate('restrict');

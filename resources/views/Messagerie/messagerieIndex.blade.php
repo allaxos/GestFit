@@ -29,7 +29,9 @@
                                 <th scope="col">Date</th>
                                 <th scope="col">Envoyé par</th>
                                 <th scope="col">Sujet</th>
-                                <th scope="col">Action</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -39,12 +41,16 @@
                                         @else
                                     <tr class="font-weight-light">
                                         @endif
-                                <td >{{$messageRecu->created_at->format('d-m-y')}}</td>
+                                <td>{{$messageRecu->created_at->format('d-m-y')}}</td>
                                 <td>{{$messageRecu->user->name}} {{$messageRecu->user->lastName}}</td>
                                 <td>{{$messageRecu->objet}}</td>
-                                        <td style="display: inline-block">
+                                        <td>
                                             <a class="btn btn-outline-primary btn-sm text-primary" href="{{route('messagerieShow',$messageRecu)}}" style="display: inline-block"><i class="fab fa-readme"></i></a>
+                                        </td>
+                                        <td >
                                             <a class="btn btn-outline-success btn-sm text-success" href="{{route('mesagerieCreate',$messageRecu)}}" style="display: inline-block"><i class="fas fa-reply"></i></a>
+                                        </td>
+                                        <td >
                                             <form method="post" action="{{route('messagerieDelete', $messageRecu->id)}}" style="display: inline">
                                                 @csrf
                                                 @method('DELETE')
