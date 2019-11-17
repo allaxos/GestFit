@@ -68,4 +68,4 @@ route::delete('mes-salles/{salle}','salle\SalleController@destroy')->name('salle
 route::post('mes-salles/','salle\SalleController@store')->name('salleStore');
 
 // annonces
-route::get('Mes-annonces/Salles/salle-de-sport/location/','AnnonceController@index')->name('annonceIndex');
+route::get('Mes-annonces/location-salle-de-sport/belgique','annonce\AnnonceController@index')->name('annonceIndex');
