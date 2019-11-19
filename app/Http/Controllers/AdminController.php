@@ -31,6 +31,7 @@ class AdminController extends Controller
 
     public function destroy( User $user)//l'id de user
     {
+
         $user->delete ();
         return redirect()->back()->with('success', 'lutilisateur a bien été supprimer');
     }

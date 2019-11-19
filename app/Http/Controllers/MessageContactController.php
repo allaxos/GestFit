@@ -24,7 +24,7 @@ class MessageContactController extends Controller
         return view('adminMessageCreate',compact('messageContactSend'));
 
     }
-
+    //à voir 
     public function send(ContactRequest $request){
         $message=request('message');
         $destinataire=request('fk_user_received');
@@ -42,13 +42,13 @@ class MessageContactController extends Controller
         ]);
         MessageContact::create($data);
         Mail::to($destinataire)->send(new Contact($request->except('_token')));
-        return view('adminView')->with('success','le mail a bien été envoyé');
+        return view('adminView');
     }
-
     public function sendtoConfirmUser(Request $request){
+
         $request->request->set('user_id',auth()->user()->id);
-        $destinataire=request('id');
-        $request->request->set('fk_user_received',$destinataire);
+
+
         $data= $request->validate(
             [
                 'objet' => 'required|max:50',
@@ -57,11 +57,10 @@ class MessageContactController extends Controller
                 'fk_user_received' => 'required'
             ]
         );
+        dd($data);
         message_users::create($data);
-        return redirect(route('adminView'))->with('Success', 'Votre message a bien été envoyé .');
+        return redirect(route('adminView'));
     }
-
-
 
     public function index(){
 

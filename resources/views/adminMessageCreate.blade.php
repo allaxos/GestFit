@@ -10,7 +10,7 @@
                     @csrf
                     <h5>Destinataire : {{$messageContactSend->name}}</h5><br>
                     <input type="hidden" name="fk_user_received" value="{{$messageContactSend->email}}">
-                    <input type="hidden" name="$id" value="{{$messageContactSend->id}}">
+                    <input type="hidden" name="id" value="{{$messageContactSend->id}}">
                     <div class="form-group">
                         <label> Objet : </label><input type="text" class="form-control  @error('objet') is-invalid @enderror" name="objet" id="objet" placeholder="Sujet..." value="message de l'admin">
                         @error('objet')

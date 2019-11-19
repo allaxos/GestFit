@@ -15,7 +15,7 @@
                         <p>{{$messageContactSend->message}}</p><hr>
                         <p style="display: inline">
 
-                            <a type="button" href="{{ route('adminMessageCreate', $messageContactSend->id) }}" class="btn btn-outline-success btn-sm text-success"><i class="fas fa-reply"></i> Répondre</a>
+                            <a type="button" href="mailto:{{$messageContactSend->email}}" class="btn btn-outline-success btn-sm text-success"><i class="fas fa-reply"></i> Répondre</a>
                         </p>
                     </div>
                 </div>

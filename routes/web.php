@@ -37,7 +37,7 @@ Route::get('admin/messageContact/index','MessageContactController@index')->name(
 Route::get('admin/messageContact/show/{message}','MessageContactController@show')->name('adminMessageView')->middleware('admin');
 Route::get('admin/messageContact/destroy/{message}','MessageContactController@destroy')->name('adminMessageViewDestroy')->middleware('admin');
 Route::get('admin/messageContact/create/{message}','MessageContactController@create')->name('adminMessageCreate')->middleware('admin');
-Route::post('admin/messageContact/send/{message_contact}','MessageContactController@send')->name('adminMessageSend')->middleware('admin');
+Route::post('admin/messageContact/send/{message_contact}','MessageContactController@sendtoConfirmUser')->name('adminMessageSend')->middleware('admin');
 //fin admin
 //dispatcher categorie
 Route::get('/dispatcher','DispatcherController@dispatcher')->name('dispatch');
