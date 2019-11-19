@@ -13,6 +13,7 @@
                 <thead>
                 <tr>
                     <th scope="col">@lang('Nom')</th>
+                    <th scope="col">@lang('Prenom')</th>
                     <th scope="col">@lang('Email')</th>
                     <th scope="col">@lang('Inscription')</th>
                     <th scope="col">@lang('Vérifié')</th>
@@ -24,15 +25,23 @@
                 @foreach($users as $user)
                     <tr @if($user->is_admin==1) style="color: red" @endif>
                         <td>{{ $user->name }}</td>
+                        <td>{{ $user->lastName }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->created_at->formatLocalized('%x') }}</td>
                         <td>@if($user->email_verified_at){{ $user->email_verified_at->formatLocalized('%x') }}@endif</td>
                         <td>{{$user->getCategorieOption($user)}}</td>
                         <td>{{(new App\message_users)->getCountMessage($user)}}</td>
+
+                        <td>
+                            <a type="button" href="{{ route('adminEdit', $user->id) }}"
+                               class="btn btn-warning btn-sm pull-right  " data-toggle="tooltip"
+                               title="@lang("Modifier l'utilisateur") {{ $user->name }}"><i
+                                    class="fas fa-edit fa-lg"></i></a>
+                        </td>
                         <td>
                             @if($user->is_admin==0)
                             <a type="button" href="{{ route('adminDestroy', $user->id) }}"
-                               class="btn btn-danger btn-sm pull-right" data-toggle="tooltip"
+                               class="btn btn-danger btn-sm pull-right" onclick="return confirm('êtes vous sure de vouloir supprimer lutilisateur :?') "data-toggle="tooltip"
                                title="@lang("Supprimer l'utilisateur") {{ $user->name }}"><i class="fas fa-trash fa-lg"></i></a>
                             @endif
                         </td>
@@ -40,6 +49,7 @@
                 @endforeach
                 </tbody>
             </table>
+
         </div>
 @endsection
 

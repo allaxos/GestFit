@@ -24,7 +24,20 @@ Auth::routes(['verify' => true]);
 Route::get('admin/index','AdminController@index')->name('adminIndex')->middleware('admin');
 Route::get('admin/show','AdminController@show')->name('adminView')->middleware('admin');
 Route::get('admin/destroy/{user}','AdminController@destroy')->name('adminDestroy')->middleware('admin');
-
+//admin edit
+Route::get('admin/modification/{user}','adminController@edit')->name('adminEdit')->middleware('admin');
+route::put('admin/Mise-a-jour/donnees{user}','adminController@updateData')->name('adminUpdateData')->middleware('admin');
+//admin categorie
+Route::get('admin/categorie/index','CategorieController@index')->name('CategorieView')->middleware('admin');
+Route::get('admin/categorie/destroy/{categorie}','CategorieController@destroy')->name('CategorieDestroy')->middleware('admin');
+Route::get('admin/categorie/create','CategorieController@create')->name('CategorieCreate')->middleware('admin');
+Route::post('admin/categorie/store','CategorieController@store')->name('CategorieStore')->middleware('admin');
+//admin message contact
+Route::get('admin/messageContact/index','MessageContactController@index')->name('messageAdminView')->middleware('admin');
+Route::get('admin/messageContact/show/{message}','MessageContactController@show')->name('adminMessageView')->middleware('admin');
+Route::get('admin/messageContact/destroy/{message}','MessageContactController@destroy')->name('adminMessageViewDestroy')->middleware('admin');
+Route::get('admin/messageContact/create/{message}','MessageContactController@create')->name('adminMessageCreate')->middleware('admin');
+Route::post('admin/messageContact/send/{message_contact}','MessageContactController@send')->name('adminMessageSend')->middleware('admin');
 //fin admin
 //dispatcher categorie
 Route::get('/dispatcher','DispatcherController@dispatcher')->name('dispatch');

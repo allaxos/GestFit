@@ -40,7 +40,6 @@ class SalleController extends Controller
     public function create()
     {
         $localites=Localite::all();
-
         return view('salle.creationSalle',compact('localites'));
     }
 

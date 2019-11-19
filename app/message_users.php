@@ -20,7 +20,7 @@ class message_users extends Model
     public function getCountMessage(User $user){
         $message=message_users::where('user_id','=' ,$user->id)->get();
         return $message->count();
-}
+    }
     public function getCountMessageNotRead(User $user){
         //user_id = user recieved
         $messageNotRed=message_users::where('fk_user_received','=',$user->id)->where('is_read','0');
