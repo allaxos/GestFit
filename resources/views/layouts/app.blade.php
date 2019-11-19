@@ -25,13 +25,13 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-light fixed-top" style="box-shadow: 1px 1px 12px #555; background-color: #28A745; color: white;">
+        <nav class="navbar navbar-light fixed-top" style="box-shadow: 1px 1px 12px #555; background-color: #3a3a3a; color: white;">
 
                 <a style="color: white" href="{{ url('/') }}">
                     <h1> <i class="fas fa-basketball-ball" style="margin-right: 5px"></i><strong>Ges</strong>Fit</h1>
                 </a>
 
-                <div class="top-right">
+                <div class="ml-auto">
                     <!-- Left Side Of Navbar -->
                             @auth
                                     <a  href="{{ url('/home') }}" style="color:white">Tableau de bord</a>
@@ -88,22 +88,22 @@
             <div class="row">
                 <div class="col-md-4 mt-md-0 mt-3  text-center">
                     <h5 class="text-uppercase">Réseaux</h5>
-                    <a href="#" style="color: #2b2b2b"><i class="fab fa-instagram"></i></a>
-                    <a href="#" style="color: #2b2b2b"><i class="fab fa-twitter"></i></a>
-                    <a href="#" style="color: #2b2b2b"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#" style="color: white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color: white"><i class="fab fa-facebook-square"></i></a>
                 </div>
                 <hr class="clearfix w-100 d-md-none pb-3">
                 <div class="col-md-5 mb-md-0 mb-3  text-center">
                     <h5 class="text-uppercase">GesFit</h5>
                     <ul class="list-unstyled">
                         <li>
-                            <a href=" {{ url('/apropos') }} ">A propos</a>
+                            <a href=" {{ url('/apropos') }} " style="color: white">A propos</a>
                         </li>
                         <li>
-                            <a href=" {{ url('/politique_confidentialite') }} ">Politique de confidentialité</a>
+                            <a href=" {{ url('/politique_confidentialite') }} " style="color: white">Politique de confidentialité</a>
                         </li>
                         <li>
-                            <a href="{{url('contact')}}">Contactez-nous</a>
+                            <a href="{{url('contact')}}" style="color: white">Contactez-nous</a>
                         </li>
                     </ul>
                 </div>
