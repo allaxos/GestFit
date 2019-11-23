@@ -44,6 +44,7 @@ class VerifyMail extends Notification
         }
 
         return (new MailMessage)
+            ->from($address = 'contact@gesfit.be', $name = 'GesFit')
             ->subject(Lang::getFromJson('Validation de l\'adresse mail '))
             ->greeting('Bonjour ')
             ->line(Lang::getFromJson('Pour valider votre MAIL Veuillez cliquez sur le bouton ci dessous : '))
