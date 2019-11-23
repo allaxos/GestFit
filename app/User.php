@@ -19,9 +19,9 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name','lastName', 'email', 'password','categorie','is_admin',
+        'name','lastName', 'email', 'password','categorie','is_admin'
     ];
-
+    protected $attributes=['is_admin'=> 0];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -29,6 +29,11 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $hidden = [
         'password', 'remember_token',
+    ];
+    protected $dates=[
+        'created_at',
+        'updated_at',
+        'email_verified_at',
     ];
 
     public function sendPasswordResetNotification($token)
@@ -46,6 +51,23 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $this->hasMany(message_users::class);
     }
+
+    public function getCategorieOption($user){
+
+        switch ($user->categorie){
+            case 1:
+                return "propriétaire";
+                break;
+
+            case 2:
+                return "utilisateur";
+                break;
+            default:
+                return "admin";
+        }
+
+    }
+
 
     /**
      * The attributes that should be cast to native types.
