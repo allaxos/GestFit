@@ -24,16 +24,16 @@ Auth::routes(['verify' => true]);
 // pas d'administration
 //Route::get('admin/routes', 'HomeController@verify')->middleware('admin');
 
-//dispatcher categorie.
+//dispatcher categorie
 Route::get('/dispatcher','DispatcherController@dispatcher');
 
 //Proprietaire
 
-Route::get('salle-sport-Proprietaire','proprietaire\ProprietaireController@index')->name('proprietaireIndex');
+Route::get('salle-sport-Proprietaire','proprietaire\ProprietaireController@index')->name('proprietaireIndex')->middleware('proprio');
 
 //utilisateur
 
-Route::get('salle-sport-Location/utilisateur','utilisateur\UtilisateurController@index')->name('utilisateurIndex');
+Route::get('salle-sport-Location/utilisateur','utilisateur\UtilisateurController@index')->name('utilisateurIndex')->middleware('utilisateur');
 
 // contactez-nous
 
@@ -57,7 +57,6 @@ Route::get('Mon-Profil/modification','ProfilController@edit')->name('profilEdit'
 route::put('Mon-profil/Mise-a-jour/donnees','ProfilController@updateData')->name('profilUpdateData');
 route::put('Mon-profil/Mise-a-jour/email','ProfilController@updateEmail')->name('profilUpdateEmail');
 
-
 // salles
 
 route::get('mes-salles','salle\SalleController@index')->name('salleIndex');
@@ -68,4 +67,7 @@ route::delete('mes-salles/{salle}','salle\SalleController@destroy')->name('salle
 route::post('mes-salles/','salle\SalleController@store')->name('salleStore');
 
 // annonces
+
 route::get('Mes-annonces/location-salle-de-sport/belgique','annonce\AnnonceController@index')->name('annonceIndex');
+
+

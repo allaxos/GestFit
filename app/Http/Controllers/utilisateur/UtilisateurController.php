@@ -19,7 +19,7 @@ class UtilisateurController extends Controller
 
         $message= new message_users();
         $countMessageNotRead=$message->getCountMessageNotRead(auth()->user());
-        return view('utilisateur.indexUtilisateur',compact('countMessageNotRead'));
+        return view('Utilisateur.indexUtilisateur',compact('countMessageNotRead'));
 
     }
 }

@@ -20,7 +20,7 @@ class ProprietaireController extends Controller
     public function index(){
         $message= new message_users();
         $countMessageNotRead=$message->getCountMessageNotRead(auth()->user());
-        return view('proprietaire.indexProprietaire',compact('countMessageNotRead'));
+        return view('Proprietaire.indexProprietaire',compact('countMessageNotRead'));
 
     }
 }

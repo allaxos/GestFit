@@ -44,7 +44,7 @@ class MailResetPasswordNotification extends Notification
     {
         return (new MailMessage)
             ->subject('Réinitialisation du mot de passe' )
-            ->greeting('Bonjour!')
+            ->greeting('Bonjour  ! ')
             ->line('Vous recevez cet email car nous avons reçu une demande de réinitialisation du mot de passe pour votre compte.')
             ->action('réinitialisation ', url(config('http://127.0.0.1:8000').route('password.reset',$this->token,false)))
             ->line('Ce lien de réinitialisation de mot de passe expirera dans 24 heurs .')

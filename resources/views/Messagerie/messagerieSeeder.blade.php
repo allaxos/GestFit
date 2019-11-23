@@ -17,11 +17,12 @@
         @endif
             <div class="row card ">
                 <h4  class="card-header bg-success btn-lg btn-block font-weight-bold" style="color: white;font-size: 200%"><i class="far fa-envelope"></i> Message </h4>
-                <div class="card-body">
+                <div class="card-body" >
                     <form action="{{route('messagerieSend')}}" method="POST">
                         @csrf
                         <h5>Destinataire : {{$message->user->name}} {{$message->user->lastName}}</h5><br>
                         <input type="hidden" name="fk_user_received" value="{{$message->user->id}}">
+                        <input type="hidden" name="conversation_id" value="{{$message->conversation_id}}">
                         <div class="form-group">
                             <input type="text" class="form-control  @error('objet') is-invalid @enderror" name="objet" id="objet" placeholder="Sujet..." value="{{ old('objet') }}">
                             @error('objet')
@@ -38,5 +39,21 @@
                     </form>
                 </div>
             </div>
+                @foreach($conversations as $lastMessage)
+
+
+                    @if($lastMessage->user->id == $message->user->id)
+                        <div class="col-md-8 mr-auto"  style="padding: 2%;margin: 2% 0%; box-shadow: 5px 5px 10px ; border-radius: 10px;">
+                            <p><b>{{$lastMessage->user->name}} {{$lastMessage->user->lastName}}</b> le : {{$lastMessage->created_at->format('d-m-y') }} à {{$lastMessage->created_at->format('H:i')}}</p>
+                            @else
+                                <div class="col-md-8 ml-auto"  style="padding: 2%;margin: 2% 0%; box-shadow: 5px 5px 10px ; border-radius: 10px;">
+                                    <p><b>Vous</b> le : {{$lastMessage->created_at->format('d-m-y') }} à {{$lastMessage->created_at->format('H:i')}}</p>
+                                    @endif
+                                    <p>Sujet : {{$lastMessage->objet}}</p>
+                                    <p>Message :</p>
+                                    <p>{{$lastMessage->message}}</p>
+                                </div>
+                                @endforeach
+                        </div>
     </div>
 @endsection
