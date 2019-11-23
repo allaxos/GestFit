@@ -57,7 +57,6 @@ Route::get('Mon-Profil/modification','ProfilController@edit')->name('profilEdit'
 route::put('Mon-profil/Mise-a-jour/donnees','ProfilController@updateData')->name('profilUpdateData');
 route::put('Mon-profil/Mise-a-jour/email','ProfilController@updateEmail')->name('profilUpdateEmail');
 
-
 // salles
 
 route::get('mes-salles','salle\SalleController@index')->name('salleIndex');
