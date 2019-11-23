@@ -44,10 +44,14 @@ class VerifyMail extends Notification
         }
 
         return (new MailMessage)
-            ->subject(Lang::getFromJson('Bonjour veuillez verifier votre email'))
-            ->line(Lang::getFromJson('Veuillez cliquez sur le bouton ci dessous '))
-            ->action(Lang::getFromJson('Verifier le mail'), $verificationUrl)
-            ->line(Lang::getFromJson('si ce mail nest pas destine a vous'));
+            ->from($address = 'contact@gesfit.be', $name = 'GesFit')
+            ->subject(Lang::getFromJson('Validation de l\'adresse mail '))
+            ->greeting('Bonjour ')
+            ->line(Lang::getFromJson('Pour valider votre MAIL Veuillez cliquez sur le bouton ci dessous : '))
+            ->action(Lang::getFromJson('Vérifier la mail'), $verificationUrl)
+            ->line('Ce lien de validation expirera dans 3 jours .')
+            ->line(Lang::getFromJson('Si le message ne vous concerne pas aucune action supplémentaire n\'est requise.'))
+            ->salutation('Équipes de GesFit');
     }
 
     /**
@@ -60,7 +64,7 @@ class VerifyMail extends Notification
     {
         return URL::temporarySignedRoute(
             'verification.verify',
-            Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
+            Carbon::now()->addMinutes(Config::get('auth.verification.expire', 4320)),
             ['id' => $notifiable->getKey()]
         );
     }

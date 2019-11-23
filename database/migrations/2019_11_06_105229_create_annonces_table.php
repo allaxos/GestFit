@@ -21,8 +21,10 @@ class CreateAnnoncesTable extends Migration
             $table->date('dateLocation');
             $table->time('timeDebut');
             $table->time('timeFin');
+            //$table->string('image')->default('default');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('localite_id');
+            $table->unsignedBigInteger('region_id');
             $table->timestamps();
         });
     }

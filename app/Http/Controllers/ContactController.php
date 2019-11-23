@@ -28,7 +28,7 @@ class ContactController extends Controller
 
         MessageContact::create($validator);
 
-        Mail::to('GestFitapplication@gmail.com')
+        Mail::to('contact@gesfit.be')
             ->send(new Contact($request->except('_token')));
 
 

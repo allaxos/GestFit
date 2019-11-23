@@ -45,6 +45,8 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->notify(new VerifyMail());
     }
 
+
+
     public function messages(){
 
         return $this->hasMany(message_users::class);
@@ -75,4 +77,5 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 }
