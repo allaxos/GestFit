@@ -23,7 +23,7 @@ class MessagerieController extends Controller
         $message= new message_users();
         //$countMessageNotRead=$message->getCountMessageNotRead(auth()->user());
 
-        return view('messagerie.messagerieIndex',compact('countMessageNotRead','listMessagesRecu'));
+        return view('Messagerie.messagerieIndex',compact('countMessageNotRead','listMessagesRecu'));
     }
 
     public function read($id){
@@ -47,7 +47,7 @@ class MessagerieController extends Controller
         $conversations=new message_users();
         $conversations=$conversations->getListMessageConversation($messageRecu);
 
-        return view('messagerie.messagerieAffiche',compact('messageRecu','conversations'));
+        return view('Messagerie.messagerieAffiche',compact('messageRecu','conversations'));
         }
     }
 
@@ -75,7 +75,7 @@ class MessagerieController extends Controller
             $conversations=new message_users();
             $conversations=$conversations->getAllListMessageConversation($message);
 
-            return view('messagerie.messagerieSeeder',compact('message','conversations'));
+            return view('Messagerie.messagerieSeeder',compact('message','conversations'));
         }else{
             return ' pas le droit ';
         }
