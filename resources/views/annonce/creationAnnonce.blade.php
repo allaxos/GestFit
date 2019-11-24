@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header bg-success btn-lg btn-block font-weight-bold justify-content-center" style="color: white;font-size: 200%"> <i class="far fa-plus-square"></i>  Insérer  une annonce</div>
                     <div class="card-body">
-                        <form action="{{route('annonceStore')}}" method="POST">
+                        <form action="{{route('annonceStore')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row">
                             <label for="name" class="col-md-3 col-form-label text-md-right">Titre :</label>
@@ -89,11 +89,11 @@
                                         </div>
                             <div class="form-group row">
                                     <label for="sub" class="col-md-3 col-form-label text-md-right"></label>
-
                                 <div class="col-md-8">
                                 <button type="submit" id="sub" class="btn btn-success font-weight-bold">Ajouter </button>
                                 </div>
                             </div>
+
                         </form>
                     </div>
                 </div>

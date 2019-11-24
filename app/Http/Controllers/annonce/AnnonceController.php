@@ -22,13 +22,12 @@ class AnnonceController extends Controller
 
         session(['title' => 'Annonces : salle de sport en location belgique, salle de sport a louer']);
         session(['description' => 'GesFit : toutes les Annonces de location de salle de sport , terrain de sport et salle de fitness en belgique et premiere site de mise en relation de location de salle de sport et terrain de sport.']);
+        $annonces=Annonce::where('user_id',auth()->user()->id)->orderBy('updated_at', 'desc')->paginate(10);
 
-        return view('annonce.annonceIndex');
-
+        return view('annonce.annonceIndex',compact('annonces'));
     }
 
     public function create(){
-
         $salles=Salle::where('user_id',auth()->user()->id)->get();
         return view('annonce.creationAnnonce',compact('salles'));
     }
@@ -48,7 +47,9 @@ class AnnonceController extends Controller
             ]
         );
         Annonce::create($data);
-        $annonces=Annonce::where('user_id',auth()->user()->id);
+        $annonces=Annonce::where('user_id',auth()->user()->id)
+            ->orderBy('updated_at', 'desc')
+            ->paginate(10);
 
         return view('annonce.annonceIndex',compact('annonces'));
 
