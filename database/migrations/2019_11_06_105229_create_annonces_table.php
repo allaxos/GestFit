@@ -24,8 +24,9 @@ class CreateAnnoncesTable extends Migration
             $table->string('description');
             //$table->string('image')->default('default');
             $table->unsignedBigInteger('user_id');
-            //$table->unsignedBigInteger('localite_id');
+
             $table->unsignedBigInteger('salle_id');
+            $table->foreign('salle_id')->references('id')->on('salles')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

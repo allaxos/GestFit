@@ -48,7 +48,7 @@
                             <form action="{{route('salleDestroy', $salle->id) }}" method="post" style="display: inline">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-outline-danger" type="submit"> <i class="far fa-trash-alt"></i> Supprimer</button>
+                                <button class="btn btn-outline-danger" type="submit" onclick="return confirm('Toutes les annonces liée a la salle vont être supprimé, êtes-vous sur ?')"> <i class="far fa-trash-alt"></i> Supprimer</button>
                             </form>
 
                             </div>
