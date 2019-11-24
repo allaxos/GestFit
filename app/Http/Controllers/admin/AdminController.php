@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\message_users;
 use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
 {
@@ -22,11 +22,11 @@ class AdminController extends Controller
     }
     //
     public function index(){
-        return view('adminIndex');
+        return view('admin.adminIndex');
     }
     public function show(){
         $users=$this->repository->getAll();
-        return view('adminView',compact('users'));
+        return view('admin.adminView',compact('users'));
     }
 
     public function destroy( User $user)//l'id de user
@@ -38,14 +38,32 @@ class AdminController extends Controller
 
     public function edit(User $user){
 
-        return view('adminEdit',compact('user'));
+        return view('admin.adminEdit',compact('user'));
     }
+    public function create(){
+        return view('admin.adminCreate');
+    }
+    public function store(Request $request){
+        $request->request->set('is_admin',1);
+        $data= $request->validate([
+            'name' => 'required', 'string', 'max:50',
+            'lastName' => ['required', 'string', 'max:50'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'categorie' =>'',
+            'is_admin'=>'',
+            'password' => ['required', 'string', 'min:5', 'confirmed'],
+                ]
+        );
 
+        User::create($data);
+        return redirect(route('adminView'))->with('succes','Ladmin a bien été crerr');
+
+    }
     public function updateData(User $user){
-
         $data=request()->validate([
             'name' => ['required', 'string', 'max:50'],
             'lastName' => ['required', 'string', 'max:50'],
+
         ]);
         $user->update($data);
         return redirect(route('adminView'))->with('success','lutilisateur a bien été modifier');

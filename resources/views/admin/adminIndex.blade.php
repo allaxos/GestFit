@@ -8,7 +8,9 @@
                     <div class="card-body">
                         <div class=”panel-heading” style="margin: 1%;"><a href="{{route('adminView')}}" class="btn btn-outline-success btn-lg btn-block font-weight-bold" style="font-size: 200%;"><i class="fas fa-warehouse"></i> Gérer les utilisateur</a></div>
                         <div class=”panel-heading” style="margin: 1%;"><a href="{{route('CategorieView')}}" class="btn btn-outline-success btn-lg btn-block font-weight-bold" style="font-size: 200%;"><i class="fas fa-warehouse"></i> Gérer les Categorie</a></div>
+                        <div class=”panel-heading” style="margin: 1%;"><a href="{{route('LocaliteView')}}" class="btn btn-outline-success btn-lg btn-block font-weight-bold" style="font-size: 200%;"><i class="fas fa-warehouse"></i> Gérer les Localites</a></div>
                         <div class=”panel-heading” style="margin: 1%;"><a href="{{route('messageAdminView')}}" class="btn btn-outline-success btn-lg btn-block font-weight-bold" style="font-size: 200%;"><i class="fas fa-warehouse"></i> Gérer les Message Admin</a></div>
+
                     </div>
                 </div>
             </div>

@@ -22,6 +22,12 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="admin" name="admin" {{ $user->is_admin ? 'checked' : '' }}>
+                                    <label class="custom-control-label" for="noSelect"> @lang('admin')</label>
+                                </div>
+                            </div>
                             <button type="submit" class="btn btn-success font-weight-bold"> <i class="fas fa-user-edit"></i> Mettre a jour </button>
                         </form>
                         <hr>

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\message_users;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;

@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\categorie;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Controllers\Controller;
 class CategorieController extends Controller
 {
     public function __construct()
@@ -20,13 +21,13 @@ class CategorieController extends Controller
     public function index(){
 
         $categorie=categorie::all();
-        return view('categorieIndex',compact('categorie'));
+        return view('categorie.categorieIndex',compact('categorie'));
     }
     public function create(){
 
 
         $categorie=categorie::all();
-        return view('categorieCreate',compact('categorie'));
+        return view('categorie.categorieCreate',compact('categorie'));
 
     }
 
