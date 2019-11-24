@@ -25,7 +25,7 @@
                 <tr>
                 <td><a href="{{ route('adminMessageView', $message->id) }}">{{$message->name}}</a></td>
                 <td>{{ $message->email }}</td>
-                <td>{{ $message->created_at->formatLocalized('%x') }}</td>
+                <td>{{ $message->created_at->format('d/m/y  H:m') }}</td>
                 <td>
                     <a type="button" href="{{ route('adminMessageView', $message->id) }}"
                        class="btn btn-warning btn-sm pull-right  " data-toggle="tooltip"
