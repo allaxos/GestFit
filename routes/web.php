@@ -37,6 +37,8 @@ Route::get('admin/localite/index','admin\LocaliteController@index')->name('Local
 Route::get('admin/localite/destroy/{localite}','admin\LocaliteController@destroy')->name('LocaliteDestroy')->middleware('admin');
 Route::get('admin/localite/create','admin\LocaliteController@create')->name('LocaliteCreate')->middleware('admin');
 Route::post('admin/localite/store','admin\LocaliteController@store')->name('LocaliteStore')->middleware('admin');
+Route::get('admin/localite/modification/{localite}','admin\LocaliteController@edit')->name('LocaliteEdit')->middleware('admin');
+route::put('admin/Mise-a-jour/localite/localite{localite}','admin\LocaliteController@updateData')->name('LocaliteUpdateData')->middleware('admin');
 //admin message contact
 Route::get('admin/messageContact/index','admin\MessageContactController@index')->name('messageAdminView')->middleware('admin');
 Route::get('admin/messageContact/show/{message}','admin\MessageContactController@show')->name('adminMessageView')->middleware('admin');

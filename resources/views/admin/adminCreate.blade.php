@@ -2,6 +2,12 @@
 
 @section('content')
     <h1>Créer un admin</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Inscription') }}</div>
+    <div class="card-body">
         <form method="POST" action="{{ route('adminStore') }}">
             @csrf
 
@@ -37,8 +43,6 @@
 
                 </div>
             </div>
-
-
             <div class="form-group row">
                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe :') }}</label>
 
@@ -63,6 +67,11 @@
             </div>
 
         </form>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     @endsection

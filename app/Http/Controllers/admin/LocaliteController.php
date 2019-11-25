@@ -42,9 +42,23 @@ class LocaliteController extends Controller
         return redirect(route('LocaliteView'))->with('success', 'La localite a bien été enregistré.');
 
     }
+    public function edit(Localite $localite){
+        return view('localite.localiteEdit',compact('localite'));
+    }
 
     public function destroy(Localite $localite){
         $localite->delete ();
         return redirect()->back()->with('success', 'localite a bien été supprimer');
+    }
+
+    public function updateData(Localite $localite){
+        $data=request()->validate([
+            'name' => ['required', 'string', 'max:20'],
+            'codePostal' => ['required', 'numeric',],
+
+        ]);
+        $localite->update($data);
+        return redirect(route('LocaliteView'))->with('success','la localite  a bien été modifier');
+
     }
 }
