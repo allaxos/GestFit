@@ -4,3 +4,100 @@ body{
   font-family: "Comic Sans MS";
 
 }
+
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0px;
+
+}
+
+
+.navbar {
+    height: 80px;
+
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.content {
+    text-align: center;
+}
+
+a:hover {
+    color: #575757;
+    text-decoration: none;
+}
+
+.top-right {
+    position: center;
+    right: 18px;
+}
+.title {
+    font-size: 84px;
+}
+
+.links, a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+.img1 {
+    margin: 0px 50px 50px 50px;
+
+}
+
+i {
+    font-size: 45px;
+}
+
+footer {
+    background-color: #3a3a3a;
+    padding-right: 35px;
+    padding-left: 35px;
+    color: white;
+    bottom: 0;
+    postion: absolute;
+    right: 0;
+    left: 0;
+
+}
+
+.card {
+    box-shadow: 1px 1px 12px #555;
+}
+
+.list-unstyled {
+    display: block;
+}
+
+.list-nav, .list-li{
+    display: inline;
+    text-decoration: none;
+}
+
+

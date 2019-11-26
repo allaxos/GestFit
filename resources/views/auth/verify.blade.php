@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="box-shadow: 1px 1px 12px #555; ">
                 <div class="card-header">{{ __('Verification del\'adresse Mail :') }}</div>
 
                 <div class="card-body">

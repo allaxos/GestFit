@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" >
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="box-shadow: 1px 1px 12px #555; ">
                 <div class="card-header">{{ __('Se connecter') }}</div>
 
                 <div class="card-body">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-4 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -52,14 +52,15 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-8 offset-md-2">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Se connecter...') }}
+                                    {{ __('Se connecter') }}
                                 </button>
-
+                            </div>
+                            <div style="margin-left: 500px;">
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Vous avez oubliez votre Mot de passe ?') }}
+                                    <a class="btn btn-link btn-sm " style="font-size: 10px;  " href="{{ route('password.request') }}">
+                                        {{ __('Mot de passe oublié ?') }}
                                     </a>
                                 @endif
                             </div>
