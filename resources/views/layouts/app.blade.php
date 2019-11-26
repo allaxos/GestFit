@@ -31,23 +31,27 @@
                     <h1> <i class="fas fa-basketball-ball" style="margin-right: 5px"></i><strong>Ges</strong>Fit</h1>
                 </a>
 
-                <div class="ml-auto">
+                <div>
+                    <ul class="navbar-nav mr-auto">
                     <!-- Left Side Of Navbar -->
                             @auth
-                                    <a  href="{{ url('/home') }}" style="color:white">Tableau de bord</a>
-
+                                <li class="nav-item active">
+                                    <a href="{{ url('/home') }}" style="color:white">Tableau de bord</a>
+                                </li>
                             @endauth
 
                                 <!--<a href="{{url('contact')}}" style="color:white">Contactez-nous</a>-->
 
                         <!-- Authentication Links -->
                         @guest
-
+                            <li class="nav-item active">
                                 <a  href="{{ route('login') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Se Connecter') }}</a>
+                            </li>
 
                             @if (Route::has('register'))
-
+                                <li class="nav-item active">
                                     <a  href="{{ route('register') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Inscription') }}</a>
+                                </li>
                             @endif
 
                         @else
@@ -71,7 +75,7 @@
                             </div>
 
                         @endguest
-
+                    </ul>
                 </div>
 
         </nav>
@@ -93,6 +97,7 @@
                     <a href="#" style="color: white"><i class="fab fa-facebook-square"></i></a>
                 </div>
                 <hr class="clearfix w-100 d-md-none pb-3">
+
                 <div class="col-md-5 mb-md-0 mb-3  text-center">
                     <h5 class="text-uppercase">GesFit</h5>
                     <ul class="list-unstyled">
@@ -103,10 +108,11 @@
                             <a href=" {{ url('/politique_confidentialite') }} " style="color: white">Politique de confidentialité</a>
                         </li>
                         <li>
-                            <a href="{{url('contact')}}" style="color: white">Contactez-nous</a>
+                            <a href="{{url('https://app.gesfit.be/contact')}}" style="color: white">Contactez-nous</a>
                         </li>
                     </ul>
                 </div>
+
                 <div class="col-md-3 mb-md-0 mb-3 text-center">
                     <i class="fas fa-map-marker-alt"></i>
                     <p>Rue de la limite 6, 1300 Wavre</p>

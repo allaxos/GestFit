@@ -90,6 +90,7 @@ footer {
 
 }
 
+/*
 .form-control:focus{
     border-color: #5cb85c;
     box-shadow: 0.5px 0.5px 0.5px #5cb85c;
@@ -97,12 +98,13 @@ footer {
 }
 .has-error .form-control:focus{
     box-shadow: none;
-    -webkit-box-shadow: none;}
+    -webkit-box-shadow: none;}*/
 
 
 .card {
     box-shadow: 1px 1px 12px #555;
 }
+
 
 
 
