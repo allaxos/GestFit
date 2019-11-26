@@ -77,6 +77,7 @@ route::post('mes-salles/','salle\SalleController@store')->name('salleStore');
 route::get('Mes-annonces/location-salle-de-sport/belgique','annonce\AnnonceController@index')->name('annonceIndex');
 route::get('Mes-annonces/ajouter-une-annonce', 'annonce\AnnonceController@create')->name('annonceCreate');
 route::post('Mes-annonces/ajouter-une-annonce', 'annonce\AnnonceController@store')->name('annonceStore');
-
+route::get('ajouter-une-image/{annonce}','ImageController@create')->name('imageCreate');
+route::post('ajouter-une-image/','ImageController@store')->name('imageStore');
 
 
