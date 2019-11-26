@@ -15,16 +15,18 @@ class CreateAnnoncesTable extends Migration
     {
         Schema::create('annonces', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('adresse');
+            $table->string('name');
+            //$table->string('adresse');
             $table->float('prix');
             $table->date('dateLocation');
             $table->time('timeDebut');
             $table->time('timeFin');
+            $table->string('description');
             //$table->string('image')->default('default');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('localite_id');
-            $table->unsignedBigInteger('region_id');
+
+            $table->unsignedBigInteger('salle_id');
+            $table->foreign('salle_id')->references('id')->on('salles')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

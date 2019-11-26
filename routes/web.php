@@ -78,9 +78,14 @@ route::get('mes-salles/{salle}/location/salle-sport/modification','salle\SalleCo
 route::put('mes-salles/{salle}','salle\SalleController@update')->name('salleUpdate');
 route::delete('mes-salles/{salle}','salle\SalleController@destroy')->name('salleDestroy');
 route::post('mes-salles/','salle\SalleController@store')->name('salleStore');
+
+
 // annonces
 
 
 route::get('Mes-annonces/location-salle-de-sport/belgique','annonce\AnnonceController@index')->name('annonceIndex');
+route::get('Mes-annonces/ajouter-une-annonce', 'annonce\AnnonceController@create')->name('annonceCreate');
+route::post('Mes-annonces/ajouter-une-annonce', 'annonce\AnnonceController@store')->name('annonceStore');
+
 
 

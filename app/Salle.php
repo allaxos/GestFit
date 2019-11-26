@@ -14,4 +14,9 @@ class Salle extends Model
 
         return $this->belongsTo(Localite::class);
     }
+
+    public function annonce(){
+
+        return $this->hasMany(Annonce::class);
+    }
 }
