@@ -4,7 +4,7 @@
     <br>
     <div class="container">
         <div class="row card ">
-            <h4  class="card-header bg-success btn-lg btn-block font-weight-bold" style="color: white;font-size: 200%">Contacter l'adminstrateur</h4>
+            <h4  class="card-header bg-primary btn-lg btn-block font-weight-bold" style="color: white;font-size: 200%">Contacter l'adminstrateur</h4>
             <div class="card-body">
                 <form action="{{ url('contact') }}" method="POST">
                     @csrf
@@ -26,7 +26,7 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-success font-weight-bold">Envoyer </button>
+                    <button type="submit" class="btn btn-primary font-weight-bold">Envoyer </button>
                 </form>
             </div>
         </div>

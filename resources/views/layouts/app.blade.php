@@ -24,82 +24,131 @@
     <script src="https://kit.fontawesome.com/ca4b3a032e.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div id="app">
-    <nav  class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="background-color:aliceblue;">
-        <div class="container" >
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="images/logo.png" style="height: 150px"/>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav ml-auto ">
-                    @auth
-                        <li class="nav-item" style="margin:5px 5px 5px 5px;">
-                            <a class="nav-link btn btn-success font-weight-bold" href="{{ route('dispatch') }}" style="color:white">Tableau de bord</a>
-                        </li>
+    <div id="app">
+        <nav class="navbar navbar-light fixed-top" style="box-shadow: 1px 1px 12px #555; background-color: #3a3a3a; color: white;">
+
+                <a style="color: white" href="{{ url('/') }}">
+                    <h1> <i class="fas fa-basketball-ball" style="margin-right: 5px"></i><strong>Ges</strong>Fit</h1>
+                </a>
 
 
-                    @endauth
-
-
-
-
-
-
-
-                    <!-- Authentication Links -->
-                    @guest
-                        <!-- Afficher pour les guest  -->
-                            <li class="nav-item" style="margin:5px 5px 5px 5px;color: white">
-                                <a class="nav-link btn btn-success font-weight-bold" href="{{url('contact')}}" style="color:white">Contactez-nous</a>
+                    <ul class="list-nav">
+                    <!-- Left Side Of Navbar -->
+                        @auth
+                            <li class="list-li">
+                                <a  href="{{ url('/home') }}" style="color:white">Tableau de bord</a>
                             </li>
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-success font-weight-bold" href="{{ route('login') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Se Connecter') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link btn btn-success font-weight-bold" href="{{ route('register') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Inscription') }}</a>
-                            </li>
-                        @endif
-                    @else
+                        @endauth
 
-                            @if(auth()->user()->is_admin==0)
-                                <li class="nav-item" style="margin:5px 5px 5px 5px;color: white">
-                                    <a class="nav-link btn btn-success font-weight-bold" href="{{url('contact')}}" style="color:white">Contactez-nous</a>
+                                <!--<a href="{{url('contact')}}" style="color:white">Contactez-nous</a>-->
+
+                        <!-- Authentication Links -->
+                        @guest
+                            <li class="list-li">
+                                <a   href="{{ route('login') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Se Connecter') }}</a>
+                            </li>
+
+                            @if (Route::has('register'))
+                                <li class="list-li">
+                                    <a  href="{{ route('register') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Inscription') }}</a>
                                 </li>
                             @endif
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-success font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="margin:5px 5px 5px 5px;color: white">
-                                {{ Auth::user()->name }} {{Auth::user()->lastName }}<span class="caret"></span>
-                            </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item btn btn-success" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Se deconnécter') }}
-                                </a>
+                        @else
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
+                            <li class="list-li">
+                                <div>
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="margin:5px 5px 5px 5px;color: white;">
+                                        {{ Auth::user()->name }} {{Auth::user()->lastName }}<span class="caret"></span>
+                                    </a>
 
-                    @endguest
-                </ul>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+
+                                        <a class="dropdown-item btn btn-primary" href="{{route('profilIndex')}}">
+                                            {{ __('Mon Profil') }}
+                                        </a>
+
+                                        <a class="dropdown-item btn btn-primary" href="{{route('messagerieIndex')}}">
+                                            {{ __('Messagerie') }}
+                                        </a>
+
+                                        <a class="dropdown-item btn btn-primary" href="#">
+                                            {{ __('Mes Annonces') }}
+                                        </a>
+
+                                        <a class="dropdown-item btn btn-primary" href="{{route('salleIndex')}}">
+                                            {{ __('Mes Salles') }}
+                                        </a>
+
+                                        <a class="dropdown-item btn btn-primary" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('Se deconnecter') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+
+
+        </nav>
+
+        <div class="container">
+            <div class="col-sm" style="text-align: center; margin-top: 250px; margin-bottom: 250px">
+            @yield('content')
             </div>
         </div>
-    </nav>
+    </div>
 
-    <main class="py-4">
+    <footer class="page-footer font-small blue pt-4">
+        <div class="container-fluid text-center text-md-left">
+            <div class="row">
+                <div class="col-md-4 mt-md-0 mt-3  text-center">
+                    <h5 class="text-uppercase">Réseaux</h5>
+                    <a href="#" style="color: white"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: white"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="color: white"><i class="fab fa-facebook-square"></i></a>
+                </div>
+                <hr class="clearfix w-100 d-md-none pb-3">
 
-        @yield('content')
-    </main>
-</div>
+                <div class="col-md-5 mb-md-0 mb-3  text-center">
+                    <h5 class="text-uppercase">GesFit</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href=" {{ url('/apropos') }} " style="color: white">A propos</a>
+                        </li>
+                        <li>
+                            <a href=" {{ url('/politique_confidentialite') }} " style="color: white">Politique de confidentialité</a>
+                        </li>
+                        <li>
+                            <a href="{{url('https://app.gesfit.be/contact')}}" style="color: white">Contactez-nous</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-md-0 mb-3 text-center">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Rue de la limite 6, 1300 Wavre</p>
+
+                    <i class="fas fa-envelope"></i>
+                    <p>gesfit.info@gesfir.be</p>
+
+                    <i class="fas fa-phone-alt"></i>
+                    <p>02 000 000</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright text-center py-3"><p>© 2019 Copyright IFOSupWavre</p>
+        </div>
+    </footer>
+
 </body>
 </html>

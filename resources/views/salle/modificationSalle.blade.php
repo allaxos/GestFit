@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header bg-success btn-lg btn-block font-weight-bold justify-content-center" style="color: white;font-size: 200%"> <i class="far fa-plus-square"></i>  Ajouter une Salle de sport</div>
+                    <div class="card-header bg-primary btn-lg btn-block font-weight-bold justify-content-center" style="color: white;font-size: 200%"> <i class="far fa-plus-square"></i>  Ajouter une Salle de sport</div>
                     <div class="card-body">
                         <form action="{{route('salleUpdate',$salle->id)}}" method="POST">
                             @csrf
@@ -44,7 +44,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-success font-weight-bold">Envoyer !</button>
+                            <button type="submit" class="btn btn-primary font-weight-bold">Envoyer !</button>
                         </form>
                     </div>
                 </div>

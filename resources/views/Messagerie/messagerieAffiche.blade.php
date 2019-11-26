@@ -10,7 +10,7 @@
         @endif
 
         @if(session()->has('infoSuccess'))
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-primary" role="alert">
                 {{ session('infoSuccess') }}
             </div>
             <br>
@@ -18,14 +18,16 @@
 
 
         <div class="row justify-content-center">
+
             <div class="col-md-8 mr-auto"  style="padding: 2%;margin: 2% 0%; box-shadow: 5px 5px 10px ; border-radius: 10px;">
 
                         <p>Envoyer par : {{$messageRecu->user->name}} {{$messageRecu->user->lastName}} le : {{$messageRecu->created_at->format('d-m-y') }} à {{$messageRecu->created_at->format('H:i')}}</p>
                         <p>Sujet : {{$messageRecu->objet}}</p>
+
                         <p>Message :</p>
                         <p>{{$messageRecu->message}}</p>
                         <p style="display: inline">
-                            <a class="btn btn-outline-success btn-sm text-success" href="{{route('mesagerieCreate',$messageRecu)}}"><i class="fas fa-reply"></i> Répondre</a>
+                            <a class="btn btn-outline-primary btn-sm text-success" href="{{route('mesagerieCreate',$messageRecu)}}"><i class="fas fa-reply"></i> Répondre</a>
                             <form method="post" action="{{route('messagerieDelete', $messageRecu->id)}}" style="display: inline">
                                 @csrf
                                 @method('DELETE')
