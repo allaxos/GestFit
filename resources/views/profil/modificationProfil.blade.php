@@ -23,7 +23,7 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-success font-weight-bold"> <i class="fas fa-user-edit"></i> Mettre a jour </button>
+                            <button type="submit" class="btn btn-primary font-weight-bold"> <i class="fas fa-user-edit"></i> Mettre a jour </button>
                         </form>
                         <hr>
                         <form action="{{route('profilUpdateEmail')}}" method="POST">
@@ -35,7 +35,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-success font-weight-bold"> <i class="fas fa-user-edit"></i> Mettre a jour </button>
+                            <button type="submit" class="btn btn-primary font-weight-bold"> <i class="fas fa-user-edit"></i> Mettre a jour </button>
                         </form>
 
 

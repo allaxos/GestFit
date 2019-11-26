@@ -10,7 +10,7 @@
         @endif
 
         @if(session()->has('infoSuccess'))
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-primary" role="alert">
                 {{ session('infoSuccess') }}
             </div>
             <br>
@@ -20,7 +20,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header bg-success btn-lg btn-block font-weight-bold" style="color: white;font-size: 200%"><i class="far fa-envelope"></i> Messagerie </div>
+                    <div class="card-header bg-primary btn-lg btn-block font-weight-bold" style="color: white;font-size: 200%"><i class="far fa-envelope"></i> Messagerie </div>
                     <div class="card-body">
                         <div class="table-responsive">
                         <table class="table table-sm">
@@ -44,7 +44,7 @@
                                 <td>{{$messageRecu->objet}}</td>
                                         <td style="display: inline-block">
                                             <a class="btn btn-outline-primary btn-sm text-primary" href="{{route('messagerieShow',$messageRecu)}}" style="display: inline-block"><i class="fab fa-readme"></i></a>
-                                            <a class="btn btn-outline-success btn-sm text-success" href="{{route('mesagerieCreate',$messageRecu)}}" style="display: inline-block"><i class="fas fa-reply"></i></a>
+                                            <a class="btn btn-outline-primary btn-sm text-primary" href="{{route('mesagerieCreate',$messageRecu)}}" style="display: inline-block"><i class="fas fa-reply"></i></a>
                                             <form method="post" action="{{route('messagerieDelete', $messageRecu->id)}}" style="display: inline">
                                                 @csrf
                                                 @method('DELETE')

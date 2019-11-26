@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <a class="btn btn-outline-success btn-lg btn-block font-weight-bold" href="{{route('salleCreate')}}"> <i class="far fa-plus-square"></i> Ajouter une salle </a>
+        <a class="btn btn-outline-primarybtn-lg btn-block font-weight-bold" href="{{route('salleCreate')}}"> <i class="far fa-plus-square"></i> Ajouter une salle </a>
         <hr>
 
         @if(session()->has('infoDanger'))
@@ -13,7 +13,7 @@
         @endif
 
         @if(session()->has('infoSuccess'))
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-primary" role="alert">
                 {{ session('infoSuccess') }}
             </div>
             <br>
@@ -25,7 +25,7 @@
 
             <div class="col-sm-6">
                 <div class="card" style="padding: 2%;margin: 2% 0%; box-shadow: 5px 5px 10px">
-                    <header class="card-header bg-success text-center " style="color: white;">
+                    <header class="card-header bg-primary text-center " style="color: white;">
                         <h3 class="card-header-title">{{$salle->name}}</h3>
                     </header>
                     <div class="card-content">
@@ -43,7 +43,7 @@
                             <hr>
                             <div class="d-flex justify-content-around">
                                 <!-- route('salle.edit', $salle->id) }}-->
-                            <a class="btn btn-outline-success" href="{{route('salleEdit',$salle->id)}}"> <i class="far fa-edit"></i> Modifier</a>
+                            <a class="btn btn-outline-primary" href="{{route('salleEdit',$salle->id)}}"> <i class="far fa-edit"></i> Modifier</a>
 
                             <form action="{{route('salleDestroy', $salle->id) }}" method="post" style="display: inline">
                                 @csrf
