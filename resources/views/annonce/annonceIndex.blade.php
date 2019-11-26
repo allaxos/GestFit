@@ -19,7 +19,7 @@
                         <p class="card-text"><b>Informations :</b>{{$annonce->description}}</p>
                         <p class="card-text"><b>Salle :</b>{{$annonce->salle->description}}</p>
                         <p class="card-text"><b>Informations :</b>{{$annonce->description}}</p>
-                        <a class="btn btn-success" href="{{route('imageCreate',$annonce->id)}}"> </a>
+                        <a class="btn btn-success" href="{{route('imageCreate',$annonce->id)}}"> Ajouter une photo </a>
                         <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
                         4.0 stars
                     </div>
