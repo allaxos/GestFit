@@ -31,7 +31,7 @@
                     <h1> <i class="fas fa-basketball-ball" style="margin-right: 5px"></i><strong>Ges</strong>Fit</h1>
                 </a>
 
-                <div>
+
                     <ul>
                     <!-- Left Side Of Navbar -->
                         @auth
@@ -45,12 +45,12 @@
                         <!-- Authentication Links -->
                         @guest
                             <li>
-                                <a  class="nav-link" href="{{ route('login') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Se Connecter') }}</a>
+                                <a   href="{{ route('login') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Se Connecter') }}</a>
                             </li>
 
                             @if (Route::has('register'))
                                 <li>
-                                    <a  class="nav-link" href="{{ route('register') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Inscription') }}</a>
+                                    <a  href="{{ route('register') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Inscription') }}</a>
                                 </li>
                             @endif
 
@@ -94,16 +94,16 @@
                             </li>
                         @endguest
                     </ul>
-                </div>
+
 
         </nav>
-    </div>
+
         <div class="container">
             <div class="col-sm" style="text-align: center; margin-top: 250px; margin-bottom: 250px">
             @yield('content')
             </div>
         </div>
-
+    </div>
 
     <footer class="page-footer font-small blue pt-4">
         <div class="container-fluid text-center text-md-left">

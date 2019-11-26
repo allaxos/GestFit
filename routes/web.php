@@ -69,3 +69,5 @@ route::post('mes-salles/','salle\SalleController@store')->name('salleStore');
 
 // annonces
 route::get('Mes-annonces/Salles/salle-de-sport/location/','AnnonceController@index')->name('annonceIndex');
+
+

@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header bg-primary btn-lg btn-block font-weight-bold justify-content-center" style="color: white;font-size: 200%"> <i class="far fa-plus-square"></i>  Ajouter une Salle de sport</div>
+                    <div class="card-header bg-primary btn-lg btn-block font-weight-bold justify-content-center" style="color: white; font-size: 200%"> <i class="far fa-plus-square" ></i>  Ajouter une Salle de sport</div>
                     <div class="card-body">
                         <form action="{{route('salleStore')}}" method="POST">
                             @csrf
