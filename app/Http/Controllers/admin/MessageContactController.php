@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 use App\Http\Requests\ContactRequest;
 use App\Mail\Contact;
 use App\message_users;
@@ -8,7 +8,7 @@ use App\MessageContact;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-
+use App\Http\Controllers\Controller;
 class MessageContactController extends Controller
 {
     public function __construct()
@@ -21,10 +21,10 @@ class MessageContactController extends Controller
     }
     public function create($id){
         $messageContactSend=MessageContact::find($id);
-        return view('adminMessageCreate',compact('messageContactSend'));
+        return view('admin.adminMessageCreate',compact('messageContactSend'));
 
     }
-    //à voir 
+    //à voir
     public function send(ContactRequest $request){
         $message=request('message');
         $destinataire=request('fk_user_received');
@@ -44,6 +44,8 @@ class MessageContactController extends Controller
         Mail::to($destinataire)->send(new Contact($request->except('_token')));
         return view('adminView');
     }
+
+    //à voir
     public function sendtoConfirmUser(Request $request){
 
         $request->request->set('user_id',auth()->user()->id);
@@ -66,13 +68,13 @@ class MessageContactController extends Controller
 
         $messages=MessageContact::all();
 
-        return view('adminMessageIndex',compact('messages'));
+        return view('admin.adminMessageIndex',compact('messages'));
     }
 
     public function show($id){
 
         $messageContactSend=MessageContact::find($id);
-        return view('adminMessageView',compact('messageContactSend'));
+        return view('admin.adminMessageView',compact('messageContactSend'));
     }
 
     public function destroy(MessageContact $messageContact){

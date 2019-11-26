@@ -49,7 +49,8 @@
                 @endforeach
                 </tbody>
             </table>
-
+            <a type="button" href="{{route('adminCreate')}}"
+               class="btn btn-primary btn-sm pull-right"><i></i>Créer un utilisateur </a>
         </div>
 @endsection
 
