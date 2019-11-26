@@ -23,6 +23,12 @@
                 <td>{{ $loc->name }}</td>
                 <td>{{ $loc->codePostal }}</td>
                 <td>
+                    <a type="button" href="{{ route('LocaliteEdit', $loc->id) }}"
+                       class="btn btn-warning btn-sm pull-right  " data-toggle="tooltip"
+                       title="@lang("Modifier la localite") {{ $loc->name }}"><i
+                            class="fas fa-edit fa-lg"></i></a>
+                </td>
+                <td>
                     <a type="button" href="{{ route('LocaliteDestroy', $loc->id) }}"
                        class="btn btn-danger btn-sm pull-right" onclick="return confirm('êtes vous sure de vouloir supprimer la localite :?') "data-toggle="tooltip"
                        title="@lang("Supprimer la localite")"><i class="fas fa-trash fa-lg"></i></a>
