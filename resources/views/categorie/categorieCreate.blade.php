@@ -14,7 +14,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-success font-weight-bold">Enregister</button>
+                            <button type="submit" class="btn btn-success font-weight-bold">Créer une Categorie</button>
                         </form>
                     </div>
                 </div>
