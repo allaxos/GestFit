@@ -12,6 +12,8 @@ class UtilisateurController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('notAdmin');
+
     }
 
     //
@@ -19,7 +21,7 @@ class UtilisateurController extends Controller
 
         $message= new message_users();
         $countMessageNotRead=$message->getCountMessageNotRead(auth()->user());
-        return view('utilisateur.indexUtilisateur',compact('countMessageNotRead'));
+        return view('Utilisateur.indexUtilisateur',compact('countMessageNotRead'));
 
     }
 }

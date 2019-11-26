@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    //
+
+
+
     public function create()
     {
         return view('Contact.contact');
@@ -26,7 +28,7 @@ class ContactController extends Controller
 
         MessageContact::create($validator);
 
-        Mail::to('GestFitapplication@gmail.com')
+        Mail::to('contact@gesfit.be')
             ->send(new Contact($request->except('_token')));
 
 

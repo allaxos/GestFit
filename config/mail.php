@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'GesFitApplication@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'contact@gesfit.be'),
         'name' => env('MAIL_FROM_NAME', 'GesFit'),
     ],
 

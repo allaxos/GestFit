@@ -30,12 +30,15 @@
                                         @csrf
                                         @method('put')
                             <div class="form-group">
-                                <input type="text" class="form-control  @error('email') is-invalid @enderror" name="email" id="email"  value="{{ old('email', auth()->user()->email) }}">
+                                <input type="text" class="form-control  @error('email') is-invalid @enderror" name="email" id="email"  value="{{ old('email', auth()->user()->email) }}"  >
                                 @error('email')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-primary font-weight-bold"> <i class="fas fa-user-edit"></i> Mettre a jour </button>
+
+
+                            <button type="submit" class="btn btn-success font-weight-bold" onclick="return confirm('Votre nouvelle adresse doit être confirmé, êtes-vous sur ?')"> <i class="fas fa-user-edit"></i> Changer </button>
+
                         </form>
 
 

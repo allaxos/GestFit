@@ -19,6 +19,10 @@ class SalleController extends Controller
         $this->middleware('verified');
 
         $this->middleware('auth');
+
+        $this->middleware('notAdmin');
+
+
     }
 
     public function index()
@@ -36,7 +40,6 @@ class SalleController extends Controller
     public function create()
     {
         $localites=Localite::all();
-
         return view('salle.creationSalle',compact('localites'));
     }
 

@@ -24,6 +24,7 @@
     <script src="https://kit.fontawesome.com/ca4b3a032e.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
     <div id="app">
         <nav class="navbar navbar-light fixed-top" style="box-shadow: 1px 1px 12px #555; background-color: #3a3a3a; color: white;">
 
@@ -148,5 +149,6 @@
         <div class="footer-copyright text-center py-3"><p>© 2019 Copyright IFOSupWavre</p>
         </div>
     </footer>
+
 </body>
 </html>
