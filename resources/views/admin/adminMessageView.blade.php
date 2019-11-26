@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header bg-success btn-lg btn-block font-weight-bold" style="color: white;font-size: 200%"><i class="far fa-envelope"></i> Message de : {{$messageContactSend->name}}</div>
                     <div class="card-body">
-                        <P> Message reçu le : {{$messageContactSend->created_at->formatLocalized('%x')}}</P>
+                        <P> Message reçu le : {{$messageContactSend->created_at->format('d/m/y')}}</P>
                         <hr>
                         <p>Envoyer par : {{$messageContactSend->name}}</p>
                         <hr>
