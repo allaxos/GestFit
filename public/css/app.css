@@ -95,5 +95,9 @@ footer {
     display: block;
 }
 
+.list-nav, .list-li{
+    display: inline;
+    text-decoration: none;
+}
 
 

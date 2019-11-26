@@ -32,10 +32,10 @@
                 </a>
 
 
-                    <ul>
+                    <ul class="list-nav">
                     <!-- Left Side Of Navbar -->
                         @auth
-                            <li>
+                            <li class="list-li">
                                 <a  href="{{ url('/home') }}" style="color:white">Tableau de bord</a>
                             </li>
                         @endauth
@@ -44,45 +44,47 @@
 
                         <!-- Authentication Links -->
                         @guest
-                            <li>
+                            <li class="list-li">
                                 <a   href="{{ route('login') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Se Connecter') }}</a>
                             </li>
 
                             @if (Route::has('register'))
-                                <li>
+                                <li class="list-li">
                                     <a  href="{{ route('register') }}" style="margin:5px 5px 5px 5px;color: white">{{ __('Inscription') }}</a>
                                 </li>
                             @endif
 
                         @else
 
-                            <li>
+                            <li class="list-li">
                                 <div>
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="margin:5px 5px 5px 5px;color: white;">
                                         {{ Auth::user()->name }} {{Auth::user()->lastName }}<span class="caret"></span>
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item btn btn-success" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Se deconnecter') }}
-                                        </a>
 
-                                        <a class="dropdown-item btn btn-success" href="{{route('profilIndex')}}">
+
+                                        <a class="dropdown-item btn btn-primary" href="{{route('profilIndex')}}">
                                             {{ __('Mon Profil') }}
                                         </a>
 
-                                        <a class="dropdown-item btn btn-success" href="{{route('messagerieIndex')}}">
+                                        <a class="dropdown-item btn btn-primary" href="{{route('messagerieIndex')}}">
                                             {{ __('Messagerie') }}
                                         </a>
 
-                                        <a class="dropdown-item btn btn-success" href="#">
+                                        <a class="dropdown-item btn btn-primary" href="#">
                                             {{ __('Mes Annonces') }}
                                         </a>
 
-                                        <a class="dropdown-item btn btn-success" href="{{route('salleIndex')}}">
+                                        <a class="dropdown-item btn btn-primary" href="{{route('salleIndex')}}">
                                             {{ __('Mes Salles') }}
+                                        </a>
+
+                                        <a class="dropdown-item btn btn-primary" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('Se deconnecter') }}
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
