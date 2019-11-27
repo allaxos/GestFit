@@ -13,7 +13,8 @@
 use Illuminate\Support\Facades\Redirect;
 
 Route::get('/',function(){
-    redirect::to('https://www.gesfit.be');
+
+    return redirect::to('http://www.gesfit.be');
 
 });
 Auth::routes();
