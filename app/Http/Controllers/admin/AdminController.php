@@ -5,12 +5,19 @@ namespace App\Http\Controllers\admin;
 use App\message_users;
 use App\Repositories\UserRepository;
 use App\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
-{
 
+
+
+
+// deprecated le mail
+{
+    use RegistersUsers;
     protected $repository;
     public function __construct(UserRepository $repository)
     {
@@ -54,11 +61,18 @@ class AdminController extends Controller
             'password' => ['required', 'string', 'min:5', 'confirmed'],
                 ]
         );
-
-        User::create($data);
+        $request->request->set('is_admin',1);
+        User::create([
+            'name' => $data['name'],
+            'lastName' => $data['lastName'],
+            'email' => $data['email'],
+            'is_admin'=>$data['is_admin'],
+            'password' => Hash::make($data['password']),
+        ]);
         return redirect(route('adminView'))->with('succes','Ladmin a bien été crerr');
 
     }
+
     public function updateData(User $user){
         $data=request()->validate([
             'name' => ['required', 'string', 'max:50'],
