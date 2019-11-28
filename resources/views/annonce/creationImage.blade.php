@@ -16,9 +16,9 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input @error('image') is-invalid @enderror" name="image" id="validatedCustomFile" >
-                                <label class="custom-file-label" for="validatedCustomFile">choisir une image</label>
+                            <div class="form-group">
+                                <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="validatedCustomFile" >
+
                                 @error('image')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
