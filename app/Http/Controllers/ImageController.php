@@ -25,8 +25,13 @@ class ImageController extends Controller
                 'annonce_id' => 'required',
             ]
         );
+
         $data['image']=request('image')->store('images','public');
         Image::create($data);
+
+        $listeImage= Annonce::find($data['annonce_id']);
+
+        return back()->with('Images',$listeImage);
 
     }
 }
