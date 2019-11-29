@@ -9,7 +9,7 @@
         @foreach($annonces as $annonce)
             <div class="col-sm-6">
                 <div class="card mt-4">
-                    <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+                    <img class="card-img-top img-fluid" src="{{isset('../../storage/'.$annonce->image[4]->image)}}" alt="">
                     <div class="card-body">
                         <h3 class="card-title">{{$annonce->name}}</h3>
                         <p class="card-text"><b> Ajoutée par :</b> {{$annonce->user->name}} {{$annonce->user->lastName}}  </p>
@@ -29,6 +29,7 @@
 
         @endforeach
         </div>
+
         <br>
         <div class="d-flex justify-content-center " style="color: green">{{$annonces->links()}}</div>
     </div>
