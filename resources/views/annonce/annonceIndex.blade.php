@@ -18,9 +18,14 @@
                         <p class="card-text"><b>Informations :</b>{{$annonce->description}}</p>
                         <p class="card-text"><b>Salle :</b>{{$annonce->salle->description}}</p>
                         <p class="card-text"><b>Informations :</b>{{$annonce->description}}</p>
+                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
+                        <hr>
                         <a class="btn btn-success" href="{{route('imageCreate',$annonce->id)}}"> Ajouter une photo </a>
-                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-                        4.0 stars
+                        <form action="{{route('annonceDestroy', $annonce->id ) }}" method="post" style="display: inline">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-outline-danger" type="submit" onclick="return confirm('Toutes les images liée a l\'annonce vont être supprimé, êtes-vous sur ?')"> <i class="far fa-trash-alt"></i> Supprimer</button>
+                        </form>
                     </div>
                 </div>
             </div>
