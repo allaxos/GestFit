@@ -22,7 +22,7 @@ class AnnonceController extends Controller
 
         session(['title' => 'Annonces : salle de sport en location belgique, salle de sport a louer']);
         session(['description' => 'GesFit : toutes les Annonces de location de salle de sport , terrain de sport et salle de fitness en belgique et premiere site de mise en relation de location de salle de sport et terrain de sport.']);
-        $annonces=Annonce::where('user_id',auth()->user()->id)->orderBy('updated_at', 'desc')->paginate(10);
+        $annonces=Annonce::where('user_id',auth()->user()->id)->orderBy('updated_at', 'desc')->paginate(4);
 
         return view('annonce.annonceIndex',compact('annonces'));
     }
@@ -53,6 +53,17 @@ class AnnonceController extends Controller
 
         return view('annonce.annonceIndex',compact('annonces'));
 
+    }
+
+    public function destroy(Annonce $annonce)
+    {
+
+        if(auth()->user()->id == $annonce->user_id){
+            $annonce->delete();
+            return back()->with('infoDanger', 'L\'annonce a bien été supprimé .');
+        }
+
+        return back()->with('infoDanger', 'Vous n\'avez pas les autorisations pour cette action .');
     }
 
 }
