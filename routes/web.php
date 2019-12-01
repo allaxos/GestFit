@@ -65,6 +65,7 @@ Route::get('Mes-messages/{message}','messagerie\MessagerieController@read')->nam
 Route::delete('Mes-messages/{message}','messagerie\MessagerieController@destroy')->name('messagerieDelete');
 Route::get('Mes-messages/repondre/{message}','messagerie\MessagerieController@create')->name('mesagerieCreate');
 Route::post('Mes-messages/repondre/','messagerie\MessagerieController@send')->name('messagerieSend');
+Route::get('Mes-messages/nouveau-message/{user}','messagerie\MessagerieController@firstMessage')->name('messagerieFirst');
 // Profil
 Route::get('Mon-profil','ProfilController@index')->name('profilIndex');
 Route::get('Mon-Profil/contactez-Nous','ProfilController@contact')->name('profilContact');
@@ -88,7 +89,19 @@ route::post('mes-salles/','salle\SalleController@store')->name('salleStore');
 route::get('Mes-annonces/location-salle-de-sport/belgique','annonce\AnnonceController@index')->name('annonceIndex');
 route::get('Mes-annonces/ajouter-une-annonce', 'annonce\AnnonceController@create')->name('annonceCreate');
 route::post('Mes-annonces/ajouter-une-annonce', 'annonce\AnnonceController@store')->name('annonceStore');
+route::delete('Mes-annonces/{annonce}', 'annonce\AnnonceController@destroy')->name('annonceDestroy');
+route::get('Mes-annonces/{annonce}', 'annonce\AnnonceController@edit')->name('annonceEdit');
+route::put('Mes-annonces/{annonce}', 'annonce\AnnonceController@update')->name('annonceUpdate');
+
+//images
 route::get('ajouter-une-image/{annonce}','ImageController@create')->name('imageCreate');
 route::post('ajouter-une-image/','ImageController@store')->name('imageStore');
+route::delete('Mes-images/{image}','ImageController@destroy')->name('imageDestroy');
+
+// annonces Guest :
+
+route::get('annonces-location-salle/terrain-sport-louer/belgique/','AnnonceGuest@index')->name('annonceGuestIndex');
+Route::get('annonces-location-salle/terrain-sport-loeur/numero/{annonce}','AnnonceGuest@createReferencement')->name('annonceGuestAffiche2');
+Route::get('annonces-location-salle/terrain-sport-loeur/{localite}','AnnonceGuest@create')->name('annonceGuestAffiche1');
 
 

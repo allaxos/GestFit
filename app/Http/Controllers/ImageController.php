@@ -12,7 +12,9 @@ class ImageController extends Controller
 
     public function create($id){
 
-        return view('annonce.creationImage')->with('id',$id);
+        $listeImage= Image::where('annonce_id',$id)->get();
+
+        return view('annonce.creationImage')->with('id',$id)->with('images',$listeImage);
 
     }
 
@@ -29,9 +31,22 @@ class ImageController extends Controller
         $data['image']=request('image')->store('images','public');
         Image::create($data);
 
-        $listeImage= Annonce::find($data['annonce_id']);
+        $listeImage= Image::where('annonce_id',$data['annonce_id'])->get();
 
-        return back()->with('Images',$listeImage);
-
+        return back()->with('images',$listeImage)->with('infoSuccess','Votre image a été bien enregister ');
     }
+
+    public function destroy(Image $image)
+    {
+
+        if(auth()->user()->id == $image->annonce->user->id){
+            $image->delete();
+            return back()->with('infoDanger', 'L\'image a bien été supprimé .');
+        }
+
+        return back()->with('infoDanger', 'Vous n\'avez pas les autorisations pour cette action .');
+    }
+
+
+
 }
