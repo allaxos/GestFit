@@ -7,6 +7,7 @@ use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -46,18 +47,25 @@ class AdminController extends Controller
     public function store(Request $request){
         $request->request->set('is_admin',1);
         $data= $request->validate([
-            'name' => 'required', 'string', 'max:50',
-            'lastName' => ['required', 'string', 'max:50'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'categorie' =>'',
-            'is_admin'=>'',
-            'password' => ['required', 'string', 'min:5', 'confirmed'],
-                ]
+                'name' => 'required', 'string', 'max:50',
+                'lastName' => ['required', 'string', 'max:50'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'categorie' =>'',
+                'is_admin'=>'',
+                'email_verified_at'=>['nullable'],
+                'password' => ['required', 'string', 'min:5', 'confirmed'],
+            ]
         );
+        User::create([
+            'name' => $data['name'],
+            'lastName' => $data['lastName'],
+            'email' => $data['email'],
+            'is_admin'=>$data['is_admin'],
+            'email_verified_at'=>$data['email_verified_at'],
+            'password' => Hash::make($data['password']),
+        ]);
 
-        User::create($data);
         return redirect(route('adminView'))->with('succes','Ladmin a bien été crerr');
-
     }
     public function updateData(User $user){
         $data=request()->validate([
