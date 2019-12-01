@@ -87,10 +87,13 @@ route::get('Mes-annonces/location-salle-de-sport/belgique','annonce\AnnonceContr
 route::get('Mes-annonces/ajouter-une-annonce', 'annonce\AnnonceController@create')->name('annonceCreate');
 route::post('Mes-annonces/ajouter-une-annonce', 'annonce\AnnonceController@store')->name('annonceStore');
 route::delete('Mes-annonces/{annonce}', 'annonce\AnnonceController@destroy')->name('annonceDestroy');
+route::get('Mes-annonces/{annonce}', 'annonce\AnnonceController@edit')->name('annonceEdit');
+route::put('Mes-annonces/{annonce}', 'annonce\AnnonceController@update')->name('annonceUpdate');
 
 //images
 route::get('ajouter-une-image/{annonce}','ImageController@create')->name('imageCreate');
 route::post('ajouter-une-image/','ImageController@store')->name('imageStore');
 route::delete('Mes-images/{image}','ImageController@destroy')->name('imageDestroy');
+
 
 

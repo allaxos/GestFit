@@ -21,6 +21,9 @@
                         <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
                         <hr>
                         <a class="btn btn-success" href="{{route('imageCreate',$annonce->id)}}"> Ajouter une photo </a>
+                        <a class="btn btn-outline-warning" href="{{route('annonceEdit',$annonce->id)}}"> <i class="far fa-edit"></i> Modifier</a>
+
+
                         <form action="{{route('annonceDestroy', $annonce->id ) }}" method="post" style="display: inline">
                             @csrf
                             @method('DELETE')
