@@ -28,4 +28,11 @@ class Annonce extends Model
 
         return $this->belongsTo(Salle::class);
     }
+
+    public function image(){
+
+        return $this->hasMany(Image::class);
+    }
+
+
 }

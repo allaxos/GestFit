@@ -4,6 +4,7 @@ namespace App\Http\Controllers\messagerie;
 
 use App\conversation;
 use App\message_users;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -100,5 +101,12 @@ class MessagerieController extends Controller
 
         message_users::create($data);
         return redirect(route('messagerieIndex'))->with('infoSuccess', 'Votre message a bien été envoyé .');
+    }
+
+    public function firstMessage(User $user){
+
+
+        return view('Messagerie.messagerieFirst',compact('user'));
+
     }
 }

@@ -7,9 +7,8 @@
         <div class="d-flex justify-content-center " style="color: green">{{$annonces->links()}}</div>
         <div class="row">
         @foreach($annonces as $annonce)
-            <div class="col-sm-6">
-                <div class="card mt-4">
-                    <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+            <div class="col-sm-6" >
+                <div class="card" style="padding: 2%;margin: 2% 0%; box-shadow: 5px 5px 10px">
                     <div class="card-body">
                         <h3 class="card-title">{{$annonce->name}}</h3>
                         <p class="card-text"><b> Ajoutée par :</b> {{$annonce->user->name}} {{$annonce->user->lastName}}  </p>
@@ -19,9 +18,17 @@
                         <p class="card-text"><b>Informations :</b>{{$annonce->description}}</p>
                         <p class="card-text"><b>Salle :</b>{{$annonce->salle->description}}</p>
                         <p class="card-text"><b>Informations :</b>{{$annonce->description}}</p>
+                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
+                        <hr>
                         <a class="btn btn-success" href="{{route('imageCreate',$annonce->id)}}"> Ajouter une photo </a>
-                        <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-                        4.0 stars
+                        <a class="btn btn-outline-warning" href="{{route('annonceEdit',$annonce->id)}}"> <i class="far fa-edit"></i> Modifier</a>
+
+
+                        <form action="{{route('annonceDestroy', $annonce->id ) }}" method="post" style="display: inline">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-outline-danger" type="submit" onclick="return confirm('Toutes les images liée a l\'annonce vont être supprimé, êtes-vous sur ?')"> <i class="far fa-trash-alt"></i> Supprimer</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -29,6 +36,7 @@
 
         @endforeach
         </div>
+
         <br>
         <div class="d-flex justify-content-center " style="color: green">{{$annonces->links()}}</div>
     </div>

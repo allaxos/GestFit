@@ -13,8 +13,8 @@
 
             <div class="form-group row">
                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __(' Nom :') }}</label>
-                <div class="form-group">
-                <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" id="name" placeholder="Nom de l'admin..." required autocomplete="name">
+                <div class="col-md-6">
+                <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" id="name"  required autocomplete="name">
                 @error('name')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -22,8 +22,8 @@
             </div>
             <div class="form-group row">
                 <label for="lastName" class="col-md-4 col-form-label text-md-right">{{ __(' Prenom  :') }}</label>
-                <div class="form-group">
-                <input type="text" class="form-control  @error('lastName') is-invalid @enderror" name="lastName" id="lastName" placeholder="prenom de l'admin..."  required autocomplete="lastName">
+                <div class="col-md-6">
+                <input type="text" class="form-control  @error('lastName') is-invalid @enderror" name="lastName" id="lastName"   required autocomplete="lastName">
                 @error('lastName')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
