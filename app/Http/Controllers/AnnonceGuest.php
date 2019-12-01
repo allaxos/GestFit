@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Annonce;
+use App\Localite;
 use Illuminate\Http\Request;
 
 class AnnonceGuest extends Controller
@@ -30,4 +31,9 @@ class AnnonceGuest extends Controller
    //     dd(session('annonce'));
    //     return view('annonceGuest.annonceguestAffiche')->with('annonce',$annonce);
    // }
+
+    public function recherche(){
+        $localites=Localite::all();
+        return view('annonceGuest.recherchAnnonces')->with('localites',$localites);
+    }
 }

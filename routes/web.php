@@ -101,7 +101,8 @@ route::delete('Mes-images/{image}','ImageController@destroy')->name('imageDestro
 // annonces Guest :
 
 route::get('annonces-location-salle/terrain-sport-louer/belgique/','AnnonceGuest@index')->name('annonceGuestIndex');
-Route::get('annonces-location-salle/terrain-sport-loeur/numero/{annonce}','AnnonceGuest@createReferencement')->name('annonceGuestAffiche2');
-Route::get('annonces-location-salle/terrain-sport-loeur/{localite}','AnnonceGuest@create')->name('annonceGuestAffiche1');
+Route::get('annonces-location-salle/terrain-sport-louer/belgique/{annonce}','AnnonceGuest@createReferencement')->name('annonceGuestAffiche2');
+//Route::get('annonces-location-salle/terrain-sport-louer/{localite}','AnnonceGuest@create')->name('annonceGuestAffiche1');
+Route::get('annonces-location-salle/terrain-sport-louer/rechercher/','AnnonceGuest@recherche')->name('recherche');
 
 
