@@ -23,7 +23,7 @@
 
                                 <div class="card" >
                                     <div class="card-body">
-                                        <img class="img-fluid" src="../../../storage/{{$image->image}}" alt="{{$image->description}}" >
+                                        <img class="img-fluid" src="storage/{{$image->image}}" alt="{{$image->description}}" >
                                     </div>
                                 </div>
 
