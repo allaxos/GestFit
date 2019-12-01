@@ -55,6 +55,7 @@ class AnnonceController extends Controller
 
     }
 
+
     public function destroy(Annonce $annonce)
     {
 
@@ -97,5 +98,6 @@ class AnnonceController extends Controller
         return redirect(route('annonceIndex'))->with('infoDanger', 'Vous n\'avez pas les autorisations pour cette action .');
         //
     }
+
 
 }

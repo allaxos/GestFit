@@ -20,6 +20,8 @@ Route::get('/',function(){
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 Auth::routes(['verify' => true]);
+//rechercher annonce
+Route::get('/home/chercher-annonce','RechercheAnnonceController@index')->name('annonceSearch');
 //admin
 Route::get('admin/index','admin\AdminController@index')->name('adminIndex')->middleware('admin');
 Route::get('admin/show','admin\AdminController@show')->name('adminView')->middleware('admin');

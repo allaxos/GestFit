@@ -17,8 +17,6 @@ class HomeController extends Controller
         $this->middleware('auth');
         $this->middleware('verified');
 
-
-
     }
 
     /**
@@ -34,10 +32,12 @@ class HomeController extends Controller
 
     }
 
+
     public function admin()
 
     {
         return view('admin');
 
     }
+
 }
