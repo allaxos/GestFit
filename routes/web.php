@@ -95,5 +95,9 @@ route::get('ajouter-une-image/{annonce}','ImageController@create')->name('imageC
 route::post('ajouter-une-image/','ImageController@store')->name('imageStore');
 route::delete('Mes-images/{image}','ImageController@destroy')->name('imageDestroy');
 
+// annonces Guest :
+
+route::get('annonces-location-salle/terrain-sport-louer/belgique/','AnnonceGuest@index')->name('annonceGuestIndex');
+
 
 

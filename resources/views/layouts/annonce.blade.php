@@ -56,7 +56,9 @@
                     <li class="nav-item" style="margin:5px 5px 5px 5px;color: white">
                         <a class="nav-link btn btn-success font-weight-bold" href="{{url('contact')}}" style="color:white">Contactez-nous</a>
                     </li>
-
+                        <li class="nav-item" style="margin:5px 5px 5px 5px;color: white">
+                            <a class="nav-link btn btn-success font-weight-bold" href="{{route('annonceGuestIndex')}}" style="color:white">Annonces</a>
+                        </li>
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
