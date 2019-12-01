@@ -42,6 +42,9 @@
                             <a class="nav-link btn btn-success font-weight-bold" href="{{ route('dispatch') }}" style="color:white">Tableau de bord</a>
                         </li>
 
+                        <li class="nav-item" style="margin:5px 5px 5px 5px;color: white">
+                            <a class="nav-link btn btn-success font-weight-bold" href="{{route('annonceGuestIndex')}}" style="color:white">Les annonces</a>
+                        </li>
 
                     @endauth
 

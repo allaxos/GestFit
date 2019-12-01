@@ -63,6 +63,7 @@ Route::get('Mes-messages/{message}','messagerie\MessagerieController@read')->nam
 Route::delete('Mes-messages/{message}','messagerie\MessagerieController@destroy')->name('messagerieDelete');
 Route::get('Mes-messages/repondre/{message}','messagerie\MessagerieController@create')->name('mesagerieCreate');
 Route::post('Mes-messages/repondre/','messagerie\MessagerieController@send')->name('messagerieSend');
+Route::get('Mes-messages/nouveau-message/{user}','messagerie\MessagerieController@firstMessage')->name('messagerieFirst');
 // Profil
 Route::get('Mon-profil','ProfilController@index')->name('profilIndex');
 Route::get('Mon-Profil/contactez-Nous','ProfilController@contact')->name('profilContact');

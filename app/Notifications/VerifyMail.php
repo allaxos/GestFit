@@ -48,7 +48,7 @@ class VerifyMail extends Notification
             ->subject(Lang::getFromJson('Validation de l\'adresse mail '))
             ->greeting('Bonjour ')
             ->line(Lang::getFromJson('Pour valider votre MAIL Veuillez cliquez sur le bouton ci dessous : '))
-            ->action(Lang::getFromJson('Vérifier la mail'), $verificationUrl)
+            ->action(Lang::getFromJson('Vérifier'), $verificationUrl)
             ->line('Ce lien de validation expirera dans 3 jours .')
             ->line(Lang::getFromJson('Si le message ne vous concerne pas aucune action supplémentaire n\'est requise.'))
             ->salutation('Équipes de GesFit');
