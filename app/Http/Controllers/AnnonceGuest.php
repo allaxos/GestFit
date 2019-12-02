@@ -34,7 +34,7 @@ class AnnonceGuest extends Controller
    // }
 
     public function recherche(){
-        $localites=Localite::all();
+        $localites=Localite::where('id','!=',0)->orderBy('name')->get();
         return view('annonceGuest.recherchAnnonces')->with('localites',$localites);
     }
 

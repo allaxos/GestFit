@@ -39,7 +39,7 @@ class SalleController extends Controller
      */
     public function create()
     {
-        $localites=Localite::all();
+        $localites=Localite::where('id','!=',0)->orderBy('name')->get();
         return view('salle.creationSalle',compact('localites'));
     }
 
