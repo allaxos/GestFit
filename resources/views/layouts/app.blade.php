@@ -28,7 +28,7 @@
     <nav  class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="background-color:aliceblue;">
         <div class="container" >
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="images/logo.png" style="height: 150px"/>
+                <b style="font-size: 2em;">GESFIT</b>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>

@@ -9,9 +9,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use Illuminate\Support\Facades\Redirect;
+
 Route::get('/',function(){
-    // doit etre remplcer par le return rediret::to('http://www.gesfit.be') -> wordpress de l'accueil
-    return view('welcome');
+
+    return redirect::to('http://www.gesfit.be');
+
 });
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');

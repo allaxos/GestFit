@@ -23,7 +23,7 @@ class AnnonceGuest extends Controller
 
        // session()->put('annonce',$annonce);
        // return redirect(route('annonceGuestAffiche1',$annonce->salle->localite->name))->with('annonce',$annonce);
-        return view('annonceGuest.annonceguestAffiche')->with('annonce',$annonce);
+        return view('annonceGuest.annonceGuestAffiche')->with('annonce',$annonce);
     }
 
    // public function create(){
