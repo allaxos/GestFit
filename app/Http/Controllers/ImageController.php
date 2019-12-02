@@ -28,7 +28,7 @@ class ImageController extends Controller
             ]
         );
 
-        $data['image']=request('image')->storeAs('public/images',$data['description'].'-'.$data['annonce_id'].'.jpeg');
+        $data['image']=request('image')->storeAs('images',$data['description'].'-'.$data['annonce_id'].'.jpeg');
         Image::create($data);
 
         $listeImage= Image::where('annonce_id',$data['annonce_id'])->get();
