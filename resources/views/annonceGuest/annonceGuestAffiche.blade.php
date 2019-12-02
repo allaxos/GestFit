@@ -23,7 +23,7 @@
 
                                 <div class="card" >
                                     <div class="card-body">
-                                        <img class="img-fluid" src="https://www.img.gesfit.be/{{$image->image}}" alt="{{$image->description}}" >
+                                        <img class="img-fluid" src="../https://www.img.gesfit.be/{{$image->image}}" alt="{{$image->description}}" >
                                     </div>
                                 </div>
 
