@@ -40,13 +40,13 @@
                 <div class="col-sm-6" >
                     <div class="card" style="padding: 2%;margin: 2% 0%; box-shadow: 5px 5px 10px">
                         <div class="card-body">
-                            <img class="img-fluid" src="../storage/{{$image->image}}" alt="{{$image->description}}" >
+                            <img class="img-fluid" src="https://www.img.gesfit.be/{{$image->image}}" alt="{{$image->description}}" >
                         </div>
 
                         <form action="{{route('imageDestroy', $image->id ) }}" method="post" style="display: inline">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-outline-danger" type="submit" onclick="return confirm('Toutes les annonces liée a la salle vont être supprimé, êtes-vous sur ?')"> <i class="far fa-trash-alt"></i> Supprimer</button>
+                            <button class="btn btn-outline-danger" type="submit" onclick="return confirm('supprimer l\'image êtes-vous sur ?')"> <i class="far fa-trash-alt"></i> Supprimer</button>
                         </form>
 
                     </div>

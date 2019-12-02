@@ -15,7 +15,7 @@
                             <p class="card-text"><b> Adresse : </b> {{$annonce->salle->adresse}} <br>{{$annonce->salle->localite->codePostal}} {{$annonce->salle->localite->name}} </p>
                             <p class="card-text"><b>Informations :</b>{{$annonce->description}}</p>
                             <p class="card-text"><b>Salle :</b>{{$annonce->salle->description}}</p>
-                            <p class="card-text"><b>Informations :</b>{{$annonce->description}}</p>
+                            <p class="card-text"><b>Informations complémentaire :</b>{{$annonce->description}}</p>
                             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
                             <hr>
                         </div>
@@ -23,7 +23,7 @@
 
                                 <div class="card" >
                                     <div class="card-body">
-                                        <img class="img-fluid" src="../../../storage/{{$image->image}}" alt="{{$image->description}}" >
+                                        <img class="img-fluid" src="https://www.img.gesfit.be/{{$image->image}}" alt="{{$image->description}}" >
                                     </div>
                                 </div>
 
