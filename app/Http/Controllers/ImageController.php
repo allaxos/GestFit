@@ -10,6 +10,13 @@ class ImageController extends Controller
 {
     //
 
+    public function __construct()
+    {
+        $this->middleware('verified');
+        $this->middleware('auth');
+        $this->middleware('notAdmin');
+    }
+
     public function create($id){
 
         $listeImage= Image::where('annonce_id',$id)->get();
