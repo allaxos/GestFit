@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Redirect;
 
 Route::get('/',function(){
 
-    return redirect::to('http://www.gesfit.be');
+   // return redirect::to('http://www.gesfit.be');
+    return view('welcome');
 
 });
 Auth::routes();

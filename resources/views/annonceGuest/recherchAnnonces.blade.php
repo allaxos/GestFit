@@ -48,9 +48,39 @@
                                 <label for="dateLocation" class="col-md-4 col-form-label text-md-right">Date :</label>
 
                                 <div class="col-md-6">
-                                    <input id="dateLocation" type="date" class="form-control @error('dateLocation') is-invalid @enderror" name="dateLocation" >
+                                    <input type="text" class="date form-control @error('dateLocation') is-invalid @enderror" name="dateLocation" id="dateLocation" placeholder="..." value="{{ old('dateLocation') }}">
+                                    @error('dateLocation')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
+
+
+                            <!-- Scripts -->
+                            <script type="text/javascript">
+                                ;(function($){
+                                    $.fn.datepicker.dates['fr'] = {
+                                        days: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                                        daysShort: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                                        daysMin: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                                        months: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
+                                        monthsShort: ["janv.", "févr.", "mars", "avril", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."],
+                                        today: "Aujourd'hui",
+                                        monthsTitle: "Mois",
+                                        clear: "Effacer",
+                                        weekStart: 1,
+                                        format: "dd/mm/yyyy"
+                                    };
+                                }(jQuery));
+                                $('.date').datepicker({
+                                    format: 'dd-mm-yyyy',
+                                    startDate: '-d',
+                                    autoclose: true,
+                                    language: 'fr',
+
+                                });
+                            </script>
+                            <!-- Scripts -->
                            <!--
                             <div class="form-group row">
                                 <label for="motCles" class="col-md-4 col-form-label text-md-right">Mots clés :</label>
