@@ -39,7 +39,7 @@
                                 <label for="prix" class="col-md-3 col-form-label text-md-right">Prix</label>
 
                                 <div class="col-md-8">
-                                <input type="string" class="form-control  @error('prix') is-invalid @enderror" name="prix" id="prix" placeholder="..." value="{{ old('prix') }}">
+                                <input type="number" class="form-control  @error('prix') is-invalid @enderror" name="prix" id="prix" placeholder="..." value="{{ old('prix') }}">
                                 @error('prix')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -49,14 +49,38 @@
                                 <label for="dateLocation" class="col-md-3 col-form-label text-md-right">Date de location :</label>
 
                                 <div class="col-md-8">
-                                    <input type="date" class="form-control  @error('dateLocation') is-invalid @enderror" name="dateLocation" id="dateLocation" placeholder="..." value="{{ old('dateLocation') }}">
+                                    <input type="text" class="date form-control @error('dateLocation') is-invalid @enderror" name="dateLocation" id="dateLocation" placeholder="..." value="{{ old('dateLocation') }}">
                                     @error('dateLocation')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                                 </div>
                             </div>
+                            <!-- Scripts -->
+                            <script type="text/javascript">
+                                ;(function($){
+                                    $.fn.datepicker.dates['fr'] = {
+                                        days: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                                        daysShort: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+                                        daysMin: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                                        months: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
+                                        monthsShort: ["janv.", "févr.", "mars", "avril", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."],
+                                        today: "Aujourd'hui",
+                                        monthsTitle: "Mois",
+                                        clear: "Effacer",
+                                        weekStart: 1,
+                                        format: "dd/mm/yyyy"
+                                    };
+                                }(jQuery));
+                                $('.date').datepicker({
+                                    format: 'dd-mm-yyyy',
+                                    startDate: '-d',
+                                    autoclose: true,
+                                    language: 'fr',
 
-                                <div class="form-group row">
+                                });
+                            </script>
+                            <!-- Scripts -->
+                            <div class="form-group row">
                                     <label for="timeDebut" class="col-md-3 col-form-label text-md-right">Heure debut :</label>
 
                                     <div class="col-md-8">
@@ -66,6 +90,7 @@
                                         @enderror
                                     </div>
                                 </div>
+
                                     <div class="form-group row">
                                         <label for="timeFin" class="col-md-3 col-form-label text-md-right">Heure de fin :</label>
 
