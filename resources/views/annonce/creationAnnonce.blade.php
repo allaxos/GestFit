@@ -55,7 +55,8 @@
                                 @enderror
                                 </div>
                             </div>
-                            <!-- Scripts -->
+
+                            <!-- Scripts des dates-->
                             <script type="text/javascript">
                                 ;(function($){
                                     $.fn.datepicker.dates['fr'] = {
@@ -80,27 +81,39 @@
                                 });
                             </script>
                             <!-- Scripts -->
+
                             <div class="form-group row">
                                     <label for="timeDebut" class="col-md-3 col-form-label text-md-right">Heure debut :</label>
 
                                     <div class="col-md-8">
-                                        <input type="time" class="form-control  @error('timeDebut') is-invalid @enderror" name="timeDebut" id="timeDebut" placeholder="..." value="{{ old('timeDebut') }}">
+
+                                        <input class="timepicker form-control @error('timeDebut') is-invalid @enderror" name="timeDebut" id="timeDebut" placeholder="..." value="{{ old('timeDebut') }}" type="text">
                                         @error('timeDebut')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                </div>
-
+                            </div>
                                     <div class="form-group row">
                                         <label for="timeFin" class="col-md-3 col-form-label text-md-right">Heure de fin :</label>
-
                                         <div class="col-md-8">
-                                            <input type="time" class="form-control  @error('timeFin') is-invalid @enderror" name="timeFin" id="timeFin" placeholder="..." value="{{ old('timeFin') }}">
+                                            <input class="timepicker form-control @error('timeFin') is-invalid @enderror" name="timeFin" id="timeFin" placeholder="..." value="{{ old('timeFin') }}" type="text">
                                             @error('timeFin')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
+
+                            <!-- Scripts du Timer -->
+                            <script type="text/javascript">
+
+                                $('.timepicker').datetimepicker({
+
+                                    format: 'HH:mm'
+
+                                });
+
+                            </script>
+                            <!-- Scripts -->
 
                                         <div class="form-group row">
                                             <label for="description" class="col-md-3 col-form-label text-md-right">Description :</label>
