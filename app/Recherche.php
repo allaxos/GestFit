@@ -9,7 +9,7 @@ class Recherche extends Model
 
     public function search($data){
 
-
+        $annonces=null;
 
         if($data['nameSalle']){
             $annonces=Annonce::where('name',$data['nameSalle']);
