@@ -19,12 +19,11 @@ class CreateAnnoncesTable extends Migration
             //$table->string('adresse');
             $table->float('prix');
             $table->date('dateLocation');
-            $table->time('timeDebut');
-            $table->time('timeFin');
+            $table->text('timeDebut');
+            $table->text('timeFin');
             $table->string('description');
             //$table->string('image')->default('default');
             $table->unsignedBigInteger('user_id');
-
             $table->unsignedBigInteger('salle_id');
             $table->foreign('salle_id')->references('id')->on('salles')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

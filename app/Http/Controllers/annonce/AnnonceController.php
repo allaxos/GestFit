@@ -5,6 +5,7 @@ namespace App\Http\Controllers\annonce;
 use App\Annonce;
 use App\Salle;
 use App\User;
+use DateTime;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -35,23 +36,38 @@ class AnnonceController extends Controller
     public function store(Request $request){
 
         $request->request->set('user_id',auth()->user()->id);
-        $data=$request->validate([
-                'name' => 'bail|required',
-                'prix' => 'required|numeric|between:1,9999',
-                'salle_id' => 'required',
-                'dateLocation' => 'date|required',
-                'timeDebut' => 'date_format:H:i',
-                'timeFin' => 'date_format:H:i',
-                'description' => 'required|max:900',
-                'user_id' => '',
-            ]
-        );
-        Annonce::create($data);
-        $annonces=Annonce::where('user_id',auth()->user()->id)
-            ->orderBy('updated_at', 'desc')
-            ->paginate(4);
+        $dateStart=request('timeDebut');
+        $dateEnd=request('timeFin');
+        $format = 'H:i';
+        $newdateDebut = DateTime::createFromFormat($format, $dateStart);
+        $newdateFin=DateTime::createFromFormat($format, $dateEnd);
+        if($newdateFin<$newdateDebut){
+            return redirect()->back()->with('infoDanger', 'heure du fin plus petit que heure début.');
 
-        return view('annonce.annonceIndex',compact('annonces'));
+        }
+        else {
+
+            //dd("c'est ok");
+
+
+            $data = $request->validate([
+                    'name' => 'bail|required',
+                    'prix' => 'required|numeric|between:1,9999',
+                    'salle_id' => 'required',
+                    'dateLocation' => 'required',
+                    'timeDebut' => 'required',
+                    'timeFin' => 'required',
+                    'description' => 'required|max:900',
+                    'user_id' => '',
+                ]
+            );
+            Annonce::create($data);
+            $annonces = Annonce::where('user_id', auth()->user()->id)
+                ->orderBy('updated_at', 'desc')
+                ->paginate(4);
+
+            return view('annonce.annonceIndex', compact('annonces'));
+        }
 
     }
 
@@ -79,22 +95,34 @@ class AnnonceController extends Controller
     public function update(Request $request, Annonce $annonce)
     {
         $request->request->set('user_id' ,auth()->user()->id);
-        $validator = $request->validate( [
-            'name' => 'bail|required',
-            'prix' => 'required|numeric|between:1,9999',
-            'salle_id' => 'required',
-            'dateLocation' => 'date|required',
-            'timeDebut' => '',
-            'timeFin' => '',
-            'description' => 'required|max:900',
-            'user_id' => '',
-        ]);
-
-        if(auth()->user()->id == $annonce->user_id) {
-            $annonce->update($validator);
-            return redirect(route('annonceIndex'))->with('infoSuccess', 'Le film a bien été modifié');
+        $dateStart=request('timeDebut');
+        $dateEnd=request('timeFin');
+        $format = 'H:i';
+        $newdateDebut = DateTime::createFromFormat($format, $dateStart);
+        $newdateFin=DateTime::createFromFormat($format, $dateEnd);
+        if($newdateFin<$newdateDebut){
+            return redirect()->back()->with('infoDanger', 'heure du fin plus petit que heure début.');
+            dd("dateFin plus petit que date debut attention ");
         }
+        else {
+          $request->request->set("dateLocation",date('y-m-d',strtotime(request('dateLocation'))));
 
+            $validator = $request->validate([
+                'name' => 'bail|required',
+                'prix' => 'required|numeric|between:1,9999',
+                'salle_id' => 'required',
+                'dateLocation' => 'required',
+                'timeDebut' => '',
+                'timeFin' => '',
+                'description' => 'required|max:900',
+                'user_id' => '',
+            ]);
+
+            if (auth()->user()->id == $annonce->user_id) {
+                $annonce->update($validator);
+                return redirect(route('annonceIndex'))->with('infoSuccess', 'Le film a bien été modifié');
+            }
+        }
         return redirect(route('annonceIndex'))->with('infoDanger', 'Vous n\'avez pas les autorisations pour cette action .');
         //
     }

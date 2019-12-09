@@ -55,8 +55,8 @@
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Se connecter...') }}
-                                </button>
-
+                                </button> Ou
+                                <a href="{{ route('register') }}">  Inscrivez-vous </a>
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Vous avez oubliez votre Mot de passe ?') }}
