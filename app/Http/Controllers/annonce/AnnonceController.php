@@ -43,7 +43,7 @@ class AnnonceController extends Controller
         $newdateFin=DateTime::createFromFormat($format, $dateEnd);
         if($newdateFin<$newdateDebut){
             return redirect()->back()->with('infoDanger', 'heure du fin plus petit que heure début.');
-            dd("dateFin plus petit que date debut attention ");
+
         }
         else {
 
@@ -105,6 +105,8 @@ class AnnonceController extends Controller
             dd("dateFin plus petit que date debut attention ");
         }
         else {
+          $request->request->set("dateLocation",date('y-m-d',strtotime(request('dateLocation'))));
+
             $validator = $request->validate([
                 'name' => 'bail|required',
                 'prix' => 'required|numeric|between:1,9999',

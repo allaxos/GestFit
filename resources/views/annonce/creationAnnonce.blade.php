@@ -60,20 +60,20 @@
                             <script type="text/javascript">
                                 ;(function($){
                                     $.fn.datepicker.dates['fr'] = {
-                                        days: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                                        days: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
                                         daysShort: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
-                                        daysMin: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                                        daysMin: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
                                         months: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
                                         monthsShort: ["janv.", "févr.", "mars", "avril", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."],
                                         today: "Aujourd'hui",
                                         monthsTitle: "Mois",
                                         clear: "Effacer",
                                         weekStart: 1,
-                                        format: "dd/mm/yyyy"
+                                        format: "yyyy/mm/dd"
                                     };
                                 }(jQuery));
                                 $('.date').datepicker({
-                                    format: 'dd-mm-yyyy',
+                                    format: 'yyyy-mm-dd',
                                     startDate: '-d',
                                     autoclose: true,
                                     language: 'fr',

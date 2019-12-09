@@ -18,7 +18,7 @@ class CreateAnnoncesTable extends Migration
             $table->string('name');
             //$table->string('adresse');
             $table->float('prix');
-            $table->text('dateLocation');
+            $table->date('dateLocation');
             $table->text('timeDebut');
             $table->text('timeFin');
             $table->string('description');

@@ -54,7 +54,7 @@
                                 <label for="dateLocation" class="col-md-3 col-form-label text-md-right">Date de location :</label>
 
                                 <div class="col-md-8">
-                                    <input type="text" class="date form-control @error('dateLocation') is-invalid @enderror" name="dateLocation" id="dateLocation" placeholder="..." value="{{ old('dateLocation')?? $annonce->dateLocation }}">
+                                    <input type="text" class="date form-control @error('dateLocation') is-invalid @enderror" name="dateLocation" id="dateLocation" placeholder="..." value="{{ old('dateLocation')?? $annonce->dateLocation }}" required>
                                     @error('dateLocation')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -64,20 +64,20 @@
                             <script type="text/javascript">
                                 ;(function($){
                                     $.fn.datepicker.dates['fr'] = {
-                                        days: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                                        days: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
                                         daysShort: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
-                                        daysMin: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
+                                        daysMin: ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
                                         months: ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
                                         monthsShort: ["janv.", "févr.", "mars", "avril", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."],
                                         today: "Aujourd'hui",
                                         monthsTitle: "Mois",
                                         clear: "Effacer",
                                         weekStart: 1,
-                                        format: "dd/mm/yyyy"
+                                        format: "yyyy/mm/dd"
                                     };
                                 }(jQuery));
                                 $('.date').datepicker({
-                                    format: 'dd-mm-yyyy',
+                                    format: 'yyyy-mm-dd',
                                     startDate: '-d',
                                     autoclose: true,
                                     language: 'fr',
