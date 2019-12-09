@@ -12,7 +12,7 @@ class AnnonceGuest extends Controller
     //
     public function index(){
 
-        $annonces=Annonce::where('dateLocation','>=',now()->format('d-m-Y'))->paginate(4);
+        $annonces=Annonce::where('dateLocation','>=',now()->format('y-m-d'))->paginate(4);
 
         return view('annonceGuest.annonceGuestIndex',compact('annonces'));
 
