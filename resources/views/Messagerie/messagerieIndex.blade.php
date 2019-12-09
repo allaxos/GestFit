@@ -18,9 +18,9 @@
 
 
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header bg-success btn-lg btn-block font-weight-bold" style="color: white;font-size: 200%"><i class="far fa-envelope"></i> Messagerie </div>
+                    <div class="card-header bg-outline-dark btn-lg btn-block font-weight-bold" style="font-size: 150%"><i class="far fa-envelope"></i> Messagerie </div>
                     <div class="card-body">
                         <div class="table-responsive">
                         <table class="table table-sm">
@@ -28,7 +28,6 @@
                             <tr>
                                 <th scope="col">Date</th>
                                 <th scope="col">Envoyé par</th>
-                                <th scope="col">Sujet</th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
@@ -43,7 +42,6 @@
                                         @endif
                                 <td>{{$messageRecu->created_at->format('d-m-y')}}</td>
                                 <td>{{$messageRecu->user->name}} {{$messageRecu->user->lastName}}</td>
-                                <td>{{$messageRecu->objet}}</td>
                                         <td>
                                             <a class="btn btn-outline-primary btn-sm text-primary" href="{{route('messagerieShow',$messageRecu)}}" style="display: inline-block"><i class="fab fa-readme"></i></a>
                                         </td>

@@ -16,7 +16,7 @@
             <br>
         @endif
             <div class="row card ">
-                <h4  class="card-header bg-success btn-lg btn-block font-weight-bold" style="color: white;font-size: 200%"><i class="far fa-envelope"></i> Message </h4>
+                <h4  class="card-header bg-outline-dark btn-lg btn-block font-weight-bold" style="font-size: 150%"><i class="far fa-envelope"></i> Message </h4>
                 <div class="card-body" >
                     <form action="{{route('messagerieSend')}}" method="POST">
                         @csrf
@@ -35,7 +35,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-success font-weight-bold"><i class="far fa-paper-plane"></i> Envoyer</button>
+                        <button type="submit" class="btn btn-outline-dark font-weight-bold"><i class="far fa-paper-plane"></i> Envoyer</button>
                     </form>
                 </div>
             </div>
