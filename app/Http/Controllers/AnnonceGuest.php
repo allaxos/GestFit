@@ -44,6 +44,32 @@ class AnnonceGuest extends Controller
         $annonces=$recherche->search($request->request->all());
 
 
-        return view('annonceGuest.annonceGuestIndex',compact('annonces'));
+        if($annonces!=null){
+            $annonces=$annonces->paginate(10);
+            return view('annonceGuest.annonceGuestIndex',compact('annonces'));
+        }else{
+
+            return redirect(route('recherche'))->with('infoDanger',' pas de résultats pour votre rechrche');
+        }
+
+
     }
+    public function rechercheResultatLieu(Request $request){
+        $recherche=new Recherche();
+
+        $annonces=$recherche->rechercherLieu($request->request->all());
+
+
+        if($annonces!=null){
+            $annonces=$annonces->paginate(10);
+            return view('annonceGuest.annonceGuestIndex',compact('annonces'));
+        }else{
+
+            return redirect(route('recherche'))->with('infoDanger',' pas de résultats pour votre recherche');
+        }
+
+
+    }
+
+
 }

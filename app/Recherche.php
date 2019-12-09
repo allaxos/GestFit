@@ -9,60 +9,57 @@ class Recherche extends Model
 
     public function search($data){
 
-        $annonces=null;
 
+        $annonces=Annonce::where('dateLocation','>=',now()->format('Y-m-d'));
         if($data['nameSalle']){
-            $annonces=Annonce::where('name',$data['nameSalle']);
-        }
 
-        if($data['localite_id']){
-            $salles=Salle::where('localite_id',$data['localite_id'])->get();
-            $cpt=0;
-
-            foreach ($salles as $salle){
-                if($cpt==0){
-                    $annonces=Annonce::where('salle_id',$salle->id);
-                    $cpt++;
-                }else{
-                    $annonces=$annonces->orWhere('salle_id',$salle->id);
-                }
-
-            }
-
+            $annonces=$annonces->where('name','like','%'.$data['nameSalle'].'%');
 
         }
 
         if($data['prixMin']){
-            if($annonces){
                 $annonces=$annonces->where('prix','>=',$data['prixMin']);
-            }else {
-                $annonces = Annonce::where('prix', '>=', $data['prixMin']);
-            }
+
         }
 
         if($data['prixMax']){
-            if($annonces){
+
                 $annonces=$annonces->where('prix','<=',$data['prixMax']);
-            }else {
-                $annonces = Annonce::where('prix','<=',$data['prixMax']);
-            }
+
         }
 
         if($data['dateLocation']){
-            if($annonces){
-                $annonces=$annonces->where('dateLocation',$data['dateLocation']);
-            }else {
-                $annonces = Annonce::where('dateLocation',$data['dateLocation']);
+                $date=date('Y-m-d',strtotime($data['dateLocation']));
+                $annonces=$annonces->where('dateLocation',$date);
+        }
+        if(sizeof($annonces->get())==0){
+            $annonces=null;
+        }
+
+        return $annonces;
+
+    }
+
+    public function rechercherLieu($data){
+
+        if($data['localite_id']){
+
+            $salles=Salle::where('localite_id',$data['localite_id'])->get();
+
+            if(sizeof($salles)!=0){
+                $annonces=Annonce::where('dateLocation','>=',now()->format('Y-m-d'));
+                foreach ($salles as $salle){
+
+                    $annonces=$annonces->orWhere('salle_id',$salle->id)->where('dateLocation','>=',now()->format('Y-m-d'));
+                }
+            }else{
+                $annonces= null;
             }
-        }
-
-
-        if($annonces==null){
-            return $annonces=Annonce::where('id','!=',0)->paginate(4);
         }else{
-            return $annonces->paginate(4);
+            $annonces=Annonce::where('dateLocation','>=',now()->format('Y-m-d'));
         }
 
+        return $annonces;
 
     }
     //
