@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header bg-success btn-lg btn-block font-weight-bold justify-content-center" style="color: white;font-size: 200%"> <i class="far fa-plus-square"></i>  Données personnelle </div>
+                    <div class="card-header bg-outline-dark btn-lg btn-block font-weight-bold justify-content-center" style="font-size: 200%"> <i class="far fa-plus-square"></i>  Données personnelle </div>
                     <div class="card-body">
                         <form action="{{route('profilUpdateData')}}" method="POST">
                             @csrf
@@ -22,7 +22,7 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-success font-weight-bold"> <i class="fas fa-user-edit"></i> Mettre a jour </button>
+                            <button type="submit" class="btn btn-outline-dark font-weight-bold"> <i class="fas fa-user-edit"></i> Mettre a jour </button>
                         </form>
                         <hr>
                         <form action="{{route('profilUpdateEmail')}}" method="POST">
@@ -34,7 +34,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-success font-weight-bold" onclick="return confirm('Votre nouvelle adresse doit être confirmé, êtes-vous sur ?')"> <i class="fas fa-user-edit"></i> Changer </button>
+                            <button type="submit" class="btn btn-outline-dark font-weight-bold" onclick="return confirm('Votre nouvelle adresse doit être confirmé, êtes-vous sur ?')"> <i class="fas fa-user-edit"></i> Changer </button>
                         </form>
 
 
