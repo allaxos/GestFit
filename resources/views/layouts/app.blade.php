@@ -42,10 +42,6 @@
                             <a class="nav-link btn btn-dark font-weight-bold" href="{{ route('dispatch') }}" style="color:white">Tableau de bord</a>
                         </li>
 
-                        <li class="nav-item" style="margin:5px 5px 5px 5px;color: white">
-                            <a class="nav-link btn btn-dark font-weight-bold" href="{{route('annonceGuestIndex')}}" style="color:white">Annonces</a>
-                        </li>
-
                     @endauth
 
 
@@ -76,11 +72,6 @@
                         @endif
                     @else
 
-                            @if(auth()->user()->is_admin==0)
-                                <li class="nav-item" style="margin:5px 5px 5px 5px;color: white">
-                                    <a class="nav-link btn btn-dark font-weight-bold" href="{{url('contact')}}" style="color:white">Contactez-nous</a>
-                                </li>
-                            @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle btn btn-dark font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="margin:5px 5px 5px 5px;color: white">
                                 {{ Auth::user()->name }} {{Auth::user()->lastName }}<span class="caret"></span>
