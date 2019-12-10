@@ -110,6 +110,6 @@ Route::get('annonces-location-salle/terrain-sport-louer/belgique/{annonce}','Ann
 //Route::get('annonces-location-salle/terrain-sport-louer/{localite}','AnnonceGuest@create')->name('annonceGuestAffiche1');
 Route::get('annonces-location-salle/terrain-sport-louer/rechercher/','AnnonceGuest@recherche')->name('recherche');
 route::post('annonces-location-salle/terrain-sport-louer/rechercher/','AnnonceGuest@rechercheResultat')->name('rechercheResultat');
-route::post('annonces-location-salle/terrain-sport-louer/rechercher/lieu','AnnonceGuest@rechercheResultatLieu')->name('rechercheResultatVille');
+//route::post('annonces-location-salle/terrain-sport-louer/rechercher/lieu','AnnonceGuest@rechercheResultatLieu')->name('rechercheResultatVille');
 
 

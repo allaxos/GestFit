@@ -9,8 +9,12 @@ class Recherche extends Model
 
     public function search($data){
 
+        $annonces=$this->rechercherLieu($data);
 
-        $annonces=Annonce::where('dateLocation','>=',now()->format('Y-m-d'));
+        if($annonces==null) {
+            $annonces = Annonce::where('dateLocation', '>=', now()->format('Y-m-d'));
+        }
+
         if($data['nameSalle']){
 
             $annonces=$annonces->where('name','like','%'.$data['nameSalle'].'%');
@@ -40,7 +44,7 @@ class Recherche extends Model
 
     }
 
-    public function rechercherLieu($data){
+    private function rechercherLieu($data){
 
         if($data['localite_id']){
 
@@ -48,9 +52,16 @@ class Recherche extends Model
 
             if(sizeof($salles)!=0){
                 $annonces=Annonce::where('dateLocation','>=',now()->format('Y-m-d'));
+                $cpt=0;
                 foreach ($salles as $salle){
+                    if($cpt==0) {
+                        $annonces = $annonces->Where('salle_id', $salle->id);
+                        $cpt++;
+                    }else {
+                        $annonces=$annonces->orWhere('salle_id', $salle->id);
 
-                    $annonces=$annonces->orWhere('salle_id',$salle->id)->where('dateLocation','>=',now()->format('Y-m-d'));
+                    }
+
                 }
             }else{
                 $annonces= null;
