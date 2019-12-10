@@ -35,10 +35,14 @@ class AnnonceController extends Controller
 
     public function store(Request $request){
         $request->request->set('user_id',auth()->user()->id);
-        if(!(new \App\Annonce)->checkTimeCorrect()){
+        $checkTimes=new Annonce();
+
+        if(!$checkTimes->checkTimeCorrect()){
             return redirect()->back()->with('infoDanger', 'heure du fin plus petit que heure début.');
         }
         else {
+
+            //dd("c'est ok");
 
             $data = $request->validate([
                     'name' => 'bail|required',
