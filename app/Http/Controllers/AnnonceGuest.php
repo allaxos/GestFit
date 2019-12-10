@@ -21,9 +21,8 @@ class AnnonceGuest extends Controller
     public function createReferencement($id){
         $annonce=Annonce::find($id);
 
-
-       // session()->put('annonce',$annonce);
-       // return redirect(route('annonceGuestAffiche1',$annonce->salle->localite->name))->with('annonce',$annonce);
+        session(['title' => substr($annonce->name,0,69).'...']);
+        session(['description' => 'salle en location pour sport :'.substr($annonce->salle->description,0,159).'...']);
         return view('annonceGuest.annonceGuestAffiche')->with('annonce',$annonce);
     }
 
