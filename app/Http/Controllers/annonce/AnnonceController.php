@@ -34,21 +34,15 @@ class AnnonceController extends Controller
     }
 
     public function store(Request $request){
-
         $request->request->set('user_id',auth()->user()->id);
-        $dateStart=request('timeDebut');
-        $dateEnd=request('timeFin');
-        $format = 'H:i';
-        $newdateDebut = DateTime::createFromFormat($format, $dateStart);
-        $newdateFin=DateTime::createFromFormat($format, $dateEnd);
-        if($newdateFin<$newdateDebut){
-            return redirect()->back()->with('infoDanger', 'heure du fin plus petit que heure début.');
+        $checkTimes=new Annonce();
 
+        if(!$checkTimes->checkTimeCorrect()){
+            return redirect()->back()->with('infoDanger', 'heure du fin plus petit que heure début.');
         }
         else {
 
             //dd("c'est ok");
-
 
             $data = $request->validate([
                     'name' => 'bail|required',
