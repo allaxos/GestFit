@@ -18,7 +18,7 @@
                                     <input id="name" type="text" class="form-control @error('nameSalle') is-invalid @enderror" name="nameSalle" >
                                 </div>
                             </div>
-                           <!-- <div class="form-group row">
+                           <div class="form-group row">
                                 <label for="localite_id" class="col-md-4 col-form-label text-md-right">Localité: </label>
                                 <div class="col-md-6">
                                     <select class="form-control  @error('localite_id') is-invalid @enderror" name="localite_id" id="localite_id" >
@@ -29,7 +29,7 @@
 
                                     </select>
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="form-group row">
                                 <label for="prixMin" class="col-md-4 col-form-label text-md-right">Prix minimun :</label>
 
@@ -92,33 +92,16 @@
                             -->
                             <div class="form-group row justify-content-center">
                                 <div class="col-md-4">
-                                    <input type="submit" class="btn btn-success" value="chercher ">
+                                    <input type="submit" class="btn btn-success" value="Trouver... ">
                                 </div>
                             </div>
 
                         </form>
-                        <hr>
-                        <form action="{{route('rechercheResultatVille')}}" method="post">
-                            @csrf
-                            <div class="form-group row">
-                            <label for="localite_id" class="col-md-4 col-form-label text-md-right">Localité: </label>
-                            <div class="col-md-6">
-                                <select class="form-control  @error('localite_id') is-invalid @enderror" name="localite_id" id="localite_id" >
-                                    <option value="">...</option>
-                                    @foreach($localites as $localite)
-                                        <option value="{{ $localite->id }}">{{$localite->name}}</option>
-                                    @endforeach
 
-                                </select>
-                            </div></div>
 
-                            <div class="form-group row justify-content-center">
-                                <div class="col-md-4">
-                                    <input type="submit" class="btn btn-success" value="chercher ">
-                                </div>
-                            </div>
 
-                        </form>
+
+
                     </div>
                 </div>
             </div>
