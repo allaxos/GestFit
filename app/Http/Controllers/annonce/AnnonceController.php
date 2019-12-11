@@ -114,7 +114,7 @@ class AnnonceController extends Controller
 
             if (auth()->user()->id == $annonce->user_id) {
                 $annonce->update($validator);
-                return redirect(route('annonceIndex'))->with('infoSuccess', 'Le film a bien été modifié');
+                return redirect(route('annonceIndex'))->with('infoSuccess', 'L\'annonce  a bien été modifié');
             }
         }
         return redirect(route('annonceIndex'))->with('infoDanger', 'Vous n\'avez pas les autorisations pour cette action .');
