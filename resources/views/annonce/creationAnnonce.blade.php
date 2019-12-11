@@ -3,9 +3,9 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header bg-success btn-lg btn-block font-weight-bold justify-content-center" style="color: white;font-size: 200%"> <i class="far fa-plus-square"></i>  Insérer  une annonce</div>
+                    <div class="card-header bg-outline-dark btn-lg btn-block font-weight-bold justify-content-center" style="font-size: 150%"> <i class="far fa-plus-square"></i>  Insérer  une annonce</div>
                     <div class="card-body">
                         <form action="{{route('annonceStore')}}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -128,7 +128,7 @@
                             <div class="form-group row">
                                     <label for="sub" class="col-md-3 col-form-label text-md-right"></label>
                                 <div class="col-md-8">
-                                <button type="submit" id="sub" class="btn btn-success font-weight-bold">Ajouter </button>
+                                <button type="submit" id="sub" class="btn btn-outline-dark font-weight-bold">Ajouter </button>
                                 </div>
                             </div>
 

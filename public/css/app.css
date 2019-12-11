@@ -17,3 +17,11 @@
 .glyphicon-chevron-down:before{
     content:"-"
 }
+
+.card {
+
+    box-shadow: 5px 5px 20px;
+}
+
+
+

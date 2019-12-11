@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header bg-success btn-lg btn-block font-weight-bold justify-content-center" style="color: white;font-size: 200%"> <i class="far fa-plus-square"></i>  Modifier la localite de  {{$localite->name }}</div>
+                    <div class="card-header bg-outline-dark btn-lg btn-block font-weight-bold justify-content-center" style="color: white;font-size: 200%"> <i class="far fa-plus-square"></i>  Modifier la localite de  {{$localite->name }}</div>
                     <div class="card-body">
                         <form action="{{route('LocaliteUpdateData',$localite->id)}}" method="POST">
                             @csrf

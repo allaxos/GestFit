@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <a class="btn btn-outline-success btn-lg btn-block font-weight-bold" href="{{route('salleCreate')}}"> <i class="far fa-plus-square"></i> Ajouter une salle </a>
+        <a class="btn btn-outline-dark btn-lg btn-block font-weight-bold" href="{{route('salleCreate')}}"> <i class="far fa-plus-square"></i> Ajouter une salle </a>
         <hr>
 
         @if(session()->has('infoDanger'))
