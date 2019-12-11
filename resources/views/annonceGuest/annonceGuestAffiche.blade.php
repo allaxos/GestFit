@@ -13,20 +13,17 @@
                             <hr>
                             <p class="card-text"><b> Ajoutée par :</b> {{$annonce->user->name}} {{$annonce->user->lastName}}   </p>
                             <h4>{{$annonce->prix}} €</h4>
-                            <p class="card-text"><b>Pour Le : </b>{{date('d-m-Y',strtotime($annonce->dateLocation))}} de {{date('H:i',strtotime($annonce->timeDebut ))}} à {{date('H:i',strtotime($annonce->timeFin ))}} </p>
+                            <p class="card-text"><b>Pour Le : </b> {{date('d-m-Y',strtotime($annonce->dateLocation))}} de {{date('H:i',strtotime($annonce->timeDebut ))}} à {{date('H:i',strtotime($annonce->timeFin ))}} </p>
                             <p class="card-text"><b> Adresse : </b> {{$annonce->salle->adresse}} <br>{{$annonce->salle->localite->codePostal}} {{$annonce->salle->localite->name}} </p>
-                           <p class="card-text"><b>Salle :</b>{{$annonce->salle->name}}</p>
-                        <p class="card-text"><b></b>{{$annonce->salle->description}}</p>
-                            <p class="card-text"><b>Informations complémentaire :</b>{{$annonce->description}}</p>
+                           <p class="card-text"><b>Salle :</b> {{$annonce->salle->name}}</p>
+                        <p class="card-text"><b></b> {{$annonce->salle->description}}</p>
+                            <p class="card-text"><b>Informations complémentaire :</b> {{$annonce->description}}</p>
                             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
                             <hr>
 
                         @foreach($annonce->image as $image)
 
-
-
-                                        <img class="img-fluid" src="https://www.img.gesfit.be/{{$image->image}}" alt="{{$image->description}}" >
-
+                                <img class="img-fluid" src="https://www.img.gesfit.be/{{$image->image}}" alt="{{$image->description}}" >
 
                             <hr>
                         @endforeach

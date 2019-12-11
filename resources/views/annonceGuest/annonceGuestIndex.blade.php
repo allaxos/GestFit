@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <a class="btn btn-outline-success btn-lg btn-block font-weight-bold" href="{{route('recherche')}}"> <i class="fas fa-search"></i> Rechercher </a>
+        <a class="btn btn-outline-dark btn-lg btn-block font-weight-bold" href="{{route('recherche')}}"> <i class="fas fa-search"></i> Rechercher </a>
         <hr>
         <div class="d-flex justify-content-center " style="color: green">{{$annonces->links()}}</div>
         <div class="row">

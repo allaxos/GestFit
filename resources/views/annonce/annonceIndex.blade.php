@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <a class="btn btn-outline-success btn-lg btn-block font-weight-bold" href="{{route('annonceCreate')}}"> <i class="far fa-plus-square"></i> Ajouter une annonce </a>
+        <a class="btn btn-outline-dark btn-lg btn-block font-weight-bold" href="{{route('annonceCreate')}}"> <i class="far fa-plus-square"></i> Ajouter une annonce </a>
         <hr>
         <div class="d-flex justify-content-center " style="color: green">{{$annonces->links()}}</div>
         <div class="row">
@@ -20,7 +20,7 @@
                         <p class="card-text"><b>Informations :</b>{{$annonce->description}}</p>
                         <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.0 stars
                         <hr>
-                        <a class="btn btn-success" href="{{route('imageCreate',$annonce->id)}}"> Ajouter une photo </a>
+                        <a class="btn btn-success" href="{{route('imageCreate',$annonce->id)}}"> Photo </a>
                         <a class="btn btn-outline-warning" href="{{route('annonceEdit',$annonce->id)}}"> <i class="far fa-edit"></i> Modifier</a>
 
                         <form action="{{route('annonceDestroy', $annonce->id ) }}" method="post" style="display: inline">

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Réinitialisation du mot de passe') }}</div>
+                <div class="card-header bg-outline-dark btn-lg btn-block font-weight-bol">{{ __('Réinitialisation du mot de passe') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('password.update') }}">
@@ -51,7 +51,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-outline-dark">
                                     {{ __('Réinitialiser') }}
                                 </button>
                             </div>

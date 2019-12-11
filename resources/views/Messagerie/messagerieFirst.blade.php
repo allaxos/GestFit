@@ -16,11 +16,11 @@
             <br>
         @endif
         <div class="row card ">
-            <h4  class="card-header bg-success btn-lg btn-block font-weight-bold" style="color: white;font-size: 200%"><i class="far fa-envelope"></i> Message </h4>
+            <h4  class="card-header bg-outline-dark btn-lg btn-block font-weight-bold" style="color: white;font-size: 200%"><i class="far fa-envelope"></i> Message </h4>
             <div class="card-body" >
                 <form action="{{route('messagerieSend')}}" method="POST">
                     @csrf
-                    <h5>Destinataire : {{$user->name}} {{$user->lastName}}</h5><br>
+                    <h5> Destinataire : {{$user->name}} {{$user->lastName}}</h5><br>
                     <input type="hidden" name="fk_user_received" value="{{$user->id}}">
                     <div class="form-group">
                         <input type="text" class="form-control  @error('objet') is-invalid @enderror" name="objet" id="objet" placeholder="Sujet..." value="{{ old('objet') }}">

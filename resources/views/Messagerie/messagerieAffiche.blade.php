@@ -19,7 +19,6 @@
 
         <div class="row justify-content-center">
             <div class="col-md-8 mr-auto"  style="padding: 2%;margin: 2% 0%; box-shadow: 5px 5px 10px ; border-radius: 10px;">
-
                         <p>Envoyer par : {{$messageRecu->user->name}} {{$messageRecu->user->lastName}} le : {{$messageRecu->created_at->format('d-m-y') }} à {{$messageRecu->created_at->format('H:i')}}</p>
                         <p>Sujet : {{$messageRecu->objet}}</p>
                         <p>Message :</p>
@@ -32,7 +31,6 @@
                                 <button class="btn btn-outline-danger btn-sm text-danger" type="submit"><i class="far fa-trash-alt"></i> Supprimer </button>
                             </form>
                         </p>
-
             </div>
 
                 @foreach($conversations as $lastMessage)

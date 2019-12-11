@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header  bg-success btn-lg btn-block font-weight-bold justify-content-center" style="color: white"><i class="fas fa-search"></i> Recherche</div>
+                    <div class="card-header  bg-outline-dark btn-lg btn-block font-weight-bold justify-content-center" style=""><i class="fas fa-search"></i> Recherche</div>
 
                     <div class="card-body">
                         <form action="{{route('rechercheResultat')}}" method="post">
@@ -92,13 +92,11 @@
                             -->
                             <div class="form-group row justify-content-center">
                                 <div class="col-md-4">
-                                    <input type="submit" class="btn btn-success" value="Trouver... ">
+                                    <input type="submit" class="btn btn-outline-dark" value="Trouver">
                                 </div>
                             </div>
 
                         </form>
-
-
 
 
 

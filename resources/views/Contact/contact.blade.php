@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <h4  class="card-header bg-dark btn-lg btn-block font-weight-bold" style="color: white;font-size: 200%">Contactez-Nous</h4>
+                    <h4  class="card-header bg-outline-dark btn-lg btn-block font-weight-bold" style="font-size: 150%">Contactez-Nous</h4>
                     <div class="card-body">
                         <form action="{{ url('contact') }}" method="POST">
                             @csrf

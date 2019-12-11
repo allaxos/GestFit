@@ -3,9 +3,9 @@
 @section('content')
     <div class="container ">
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header bg-success btn-lg btn-block font-weight-bold justify-content-center" style="color: white;font-size: 200%"> <i class="far fa-plus-square"></i>  Ajouter une image</div>
+                    <div class="card-header bg-outline-dark btn-lg btn-block font-weight-bold justify-content-center" style="font-size: 150%"> <i class="far fa-plus-square"></i>  Ajouter une image</div>
                     <div class="card-body">
                         <form action="{{route('imageStore')}}" method="POST" enctype="multipart/form-data">
                             @csrf
@@ -25,7 +25,7 @@
                             </div>
                             <div class="form-group">
                                 <hr>
-                             <button type="submit" class="btn btn-success font-weight-bold">Enregister</button>
+                             <button type="submit" class="btn btn-outline-dark font-weight-bold">Enregister</button>
                             </div>
 
                         </form>
@@ -35,7 +35,7 @@
         </div>
         <hr>
         <!-- greation des image -->
-        <div class="row ">
+        <div class="row justify-content-center">
             @foreach($images as $image)
                 <div class="col-sm-6" >
                     <div class="card" style="padding: 2%;margin: 2% 0%; box-shadow: 5px 5px 10px">
