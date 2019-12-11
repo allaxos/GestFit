@@ -31,8 +31,8 @@ Route::get('admin/destroy/{user}','admin\AdminController@destroy')->name('adminD
 Route::get('admin/modification/{user}','admin\AdminController@edit')->name('adminEdit')->middleware('admin');
 route::put('admin/Mise-a-jour/donnees{user}','admin\AdminController@updateData')->name('adminUpdateData')->middleware('admin');
 //admin create
-Route::get('admin/Create','admin\adminController@create')->name('adminCreate')->middleware('admin');
-Route::post('admin/Create/store','admin\adminController@store')->name('adminStore')->middleware('admin');
+Route::get('admin/Create','admin\AdminController@create')->name('adminCreate')->middleware('admin');
+Route::post('admin/Create/store','admin\AdminController@store')->name('adminStore')->middleware('admin');
 //admin categorie
 Route::get('admin/categorie/index','admin\CategorieController@index')->name('CategorieView')->middleware('admin');
 Route::get('admin/categorie/destroy/{categorie}','admin\CategorieController@destroy')->name('CategorieDestroy')->middleware('admin');
