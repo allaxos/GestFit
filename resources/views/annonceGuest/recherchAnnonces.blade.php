@@ -12,7 +12,7 @@
                         <form action="{{route('rechercheResultat')}}" method="post">
                             @csrf
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">Nom Salle :</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Titre annonce :</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('nameSalle') is-invalid @enderror" name="nameSalle" >

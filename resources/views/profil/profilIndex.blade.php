@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <div class=”panel-heading” style="margin: 1% ;"><a href="{{route('profilEdit')}}" class="btn btn-outline-dark btn-lg btn-block font-weight-bold" style="font-size: 150%;"><i class="fas fa-user-edit"></i> Modifier mes données  </a></div>
                         <div class=”panel-heading” style="margin: 1%;"><a href="{{route('profilRest')}}" class="btn btn-outline-dark btn-lg btn-block font-weight-bold" style="font-size: 150%;"><i class="fas fa-key"></i> Changer mot de passe</a></div>
-                        <div class=”panel-heading” style="margin: 1%;"><a href="{{route('profilContact')}}" class="btn btn-outline-dark btn-lg btn-block font-weight-bold" style="font-size: 150%;"><i class="far fa-envelope"></i> Contacter l'adminstrateur</a></div>
+                        <div class=”panel-heading” style="margin: 1%;"><a href="{{route('profilContact')}}" class="btn btn-outline-dark btn-lg btn-block font-weight-bold" style="font-size: 150%;"><i class="far fa-envelope"></i> Contacter l'administrateur</a></div>
 
                     </div>
                 </div>

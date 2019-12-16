@@ -4,7 +4,7 @@
     <br>
     <div class="container">
         <div class="row card ">
-            <h4  class="card-header bg-outline-dark btn-lg btn-block font-weight-bold" style="font-size: 200%">Contacter l'adminstrateur</h4>
+            <h4  class="card-header bg-outline-dark btn-lg btn-block font-weight-bold" style="font-size: 200%">Contacter l'administrateur</h4>
             <div class="card-body">
                 <form action="{{ url('contact') }}" method="POST">
                     @csrf

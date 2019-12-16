@@ -83,7 +83,7 @@
                             <!-- Scripts -->
 
                             <div class="form-group row">
-                                    <label for="timeDebut" class="col-md-3 col-form-label text-md-right">Heure debut :</label>
+                                    <label for="timeDebut" class="col-md-3 col-form-label text-md-right">Heure début :</label>
 
                                     <div class="col-md-8">
 
